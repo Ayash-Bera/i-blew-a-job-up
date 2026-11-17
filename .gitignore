@@ -1,0 +1,15 @@
+.env
+.env.*
+!.env.example
+.vercel/
+.next/
+node_modules/
+.unlazy/
+__pycache__/
+*.pyc
+*.tsbuildinfo
+backend/server
+backend/ingest
+private/
+evidence/raw/
+*.log

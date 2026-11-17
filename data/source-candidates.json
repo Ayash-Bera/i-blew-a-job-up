@@ -1,0 +1,18 @@
+[
+  {
+    "id": "apna-freshers-inventory",
+    "kind": "apna",
+    "board": "freshers-jobs",
+    "company": "Employers on Apna",
+    "url": "https://apna.co/jobs/freshers-jobs",
+    "enabled": false
+  },
+  {
+    "id": "smartrecruiters-eurofins",
+    "kind": "smartrecruiters",
+    "board": "Eurofins",
+    "company": "Eurofins",
+    "url": "https://careers.smartrecruiters.com/Eurofins",
+    "enabled": false
+  }
+]

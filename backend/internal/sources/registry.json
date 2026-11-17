@@ -1,0 +1,98 @@
+[
+  {
+    "id": "marriott-india-inventory",
+    "kind": "marriott",
+    "board": "marriott",
+    "company": "Marriott International",
+    "url": "https://careers.marriott.com/jobs?filter%5Bcountry%5D%5B0%5D=India",
+    "enabled": true
+  },
+  {
+    "id": "greenhouse-instawork",
+    "kind": "greenhouse",
+    "board": "instawork",
+    "company": "Instawork",
+    "url": "https://job-boards.greenhouse.io/instawork",
+    "enabled": true
+  },
+  {
+    "id": "greenhouse-hackerrank",
+    "kind": "greenhouse",
+    "board": "hackerrank",
+    "company": "HackerRank",
+    "url": "https://job-boards.greenhouse.io/hackerrank",
+    "enabled": true
+  },
+  {
+    "id": "greenhouse-rubrik",
+    "kind": "greenhouse",
+    "board": "rubrik",
+    "company": "Rubrik",
+    "url": "https://job-boards.greenhouse.io/rubrik",
+    "enabled": true
+  },
+  {
+    "id": "greenhouse-stripe",
+    "kind": "greenhouse",
+    "board": "stripe",
+    "company": "Stripe",
+    "url": "https://job-boards.greenhouse.io/stripe",
+    "enabled": true
+  },
+  {
+    "id": "greenhouse-cloudsek",
+    "kind": "greenhouse",
+    "board": "cloudsek",
+    "company": "CloudSEK",
+    "url": "https://job-boards.greenhouse.io/cloudsek",
+    "enabled": true
+  },
+  {
+    "id": "greenhouse-66degrees",
+    "kind": "greenhouse",
+    "board": "66degrees",
+    "company": "66degrees",
+    "url": "https://job-boards.greenhouse.io/66degrees",
+    "enabled": true
+  },
+  {
+    "id": "lever-hevodata",
+    "kind": "lever",
+    "board": "hevodata",
+    "company": "Hevo Data",
+    "url": "https://jobs.lever.co/hevodata",
+    "enabled": true
+  },
+  {
+    "id": "lever-drivetrain",
+    "kind": "lever",
+    "board": "drivetrain",
+    "company": "Drivetrain",
+    "url": "https://jobs.lever.co/drivetrain",
+    "enabled": true
+  },
+  {
+    "id": "lever-paytm",
+    "kind": "lever",
+    "board": "paytm",
+    "company": "Paytm",
+    "url": "https://jobs.lever.co/paytm",
+    "enabled": true
+  },
+  {
+    "id": "lever-dnb",
+    "kind": "lever",
+    "board": "dnb",
+    "company": "Dun & Bradstreet",
+    "url": "https://jobs.lever.co/dnb",
+    "enabled": true
+  },
+  {
+    "id": "ashby-gainsight",
+    "kind": "ashby",
+    "board": "gainsight",
+    "company": "Gainsight",
+    "url": "https://jobs.ashbyhq.com/gainsight",
+    "enabled": true
+  }
+]
