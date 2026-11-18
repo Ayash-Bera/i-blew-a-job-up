@@ -81,7 +81,9 @@ def prepare(dataset, destination, seed, pilot_ids):
 
 
 def cities(value):
-    aliases = {"bangalore": "bengaluru", "gurgaon": "gurugram", "bombay": "mumbai"}
+    aliases = {"bangalore": "bengaluru", "gurgaon": "gurugram", "bombay": "mumbai",
+               "cochin": "kochi", "mysore": "mysuru", "mangalore": "mangaluru",
+               "trivandrum": "thiruvananthapuram", "swai madhopur": "sawai madhopur"}
     parts = value if isinstance(value, list) else value.split(";")
     return sorted({aliases.get(v.strip().casefold(), v.strip().casefold()) for v in parts if v.strip()})
 

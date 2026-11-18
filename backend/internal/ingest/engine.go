@@ -125,7 +125,7 @@ func (e *Engine) Run(ctx context.Context) (run models.Run, retErr error) {
 	if s.InitialCohort == nil && e.Tagger.Ready() && len(candidates) > 0 {
 		s.InitialCohort = &models.InitialCohort{StartedAt: time.Now().UTC(), Versions: map[string]string{}}
 		for _, candidate := range candidates {
-			s.InitialCohort.Versions[candidate.Job.ID] = tagging.CacheKey(candidate.Raw, e.Tagger.Model)
+			s.InitialCohort.Versions[candidate.Job.ID] = e.Tagger.CacheKey(candidate.Raw)
 		}
 		s.Jobs = out
 		if err = e.Store.Save(ctx, s, run.ID); err != nil {
@@ -148,7 +148,7 @@ func (e *Engine) Run(ctx context.Context) (run models.Run, retErr error) {
 				c := candidates[index]
 				job := c.Job
 				if e.Tagger != nil {
-					key := tagging.CacheKey(c.Raw, e.Tagger.Model)
+					key := e.Tagger.CacheKey(c.Raw)
 					record, cacheErr := e.Store.GetTag(ctx, key)
 					if cacheErr != nil {
 						mutex.Lock()
@@ -630,7 +630,7 @@ func finishInitialCohort(s *models.State, candidates []candidate, jobs []models.
 	}
 	completed := map[string]bool{}
 	for i, c := range candidates {
-		if jobs[i].TaggingMethod == "llm" && cohort.Versions[c.Job.ID] == tagging.CacheKey(c.Raw, client.Model) {
+		if jobs[i].TaggingMethod == "llm" && cohort.Versions[c.Job.ID] == client.CacheKey(c.Raw) {
 			completed[c.Job.ID] = true
 		}
 	}

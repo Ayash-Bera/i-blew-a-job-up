@@ -3,7 +3,7 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
-from audit import prepare, score, safe_cell
+from audit import cities, prepare, score, safe_cell
 
 
 class AuditTests(unittest.TestCase):
@@ -58,6 +58,44 @@ class AuditTests(unittest.TestCase):
         self.assertEqual(49, result["joint"]["correct"])
         self.assertEqual(50, result["location"]["correct"])
         self.assertLess(result["joint"]["wilson_95_interval"][0], .98)
+
+    def test_city_aliases_preserve_distinct_city_sets(self):
+        equivalents = [("Bangalore", "Bengaluru"), ("Gurgaon", "Gurugram"),
+                       ("Bombay", "Mumbai"), ("Cochin", "Kochi"), ("Mysore", "Mysuru"),
+                       ("Mangalore", "Mangaluru"), ("Trivandrum", "Thiruvananthapuram"),
+                       ("Swai Madhopur", "Sawai Madhopur")]
+        for alias, canonical in equivalents:
+            with self.subTest(alias=alias):
+                self.assertEqual(cities(" " + alias.upper() + " "), cities([canonical]))
+                self.assertEqual(cities(alias + ";" + canonical), cities([canonical]))
+        self.assertNotEqual(cities("Delhi"), cities("New Delhi"))
+        self.assertEqual(cities("Delhi;New Delhi"), ["delhi", "new delhi"])
+
+    def test_scoring_accepts_aliases_but_rejects_a_different_city(self):
+        canonical = ["Bengaluru", "Gurugram", "Mumbai", "Kochi", "Mysuru",
+                     "Mangaluru", "Thiruvananthapuram", "Sawai Madhopur", "New Delhi"]
+        aliases = "Bangalore;Gurgaon;Bombay;Cochin;Mysore;Mangalore;Trivandrum;Swai Madhopur;New Delhi"
+        for job in self.jobs:
+            job["cities"] = canonical
+        self.dataset.write_text(json.dumps(self.jobs))
+        prepare(self.dataset, self.out, "alias-score", None)
+        self.complete_reviews()
+        path = self.out / "human-review.csv"
+        with path.open(newline="") as handle:
+            reader = csv.DictReader(handle)
+            fields, rows = reader.fieldnames, list(reader)
+        for row in rows:
+            row["gold_cities"] = aliases
+        different_id = rows[1]["id"]
+        rows[1]["gold_cities"] = aliases.replace("New Delhi", "Delhi")
+        with path.open("w", newline="") as handle:
+            writer = csv.DictWriter(handle, fieldnames=fields)
+            writer.writeheader()
+            writer.writerows(rows)
+        result = score(self.out)
+        self.assertEqual(result["location"]["correct"], 49)
+        mismatches = [row["id"] for row in result["results"] if not row["location_correct"]]
+        self.assertEqual(mismatches, [different_id])
 
     def test_changed_predictions_rejected(self):
         prepare(self.dataset, self.out, "seed", None)

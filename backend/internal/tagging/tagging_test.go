@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
+	"time"
 
 	"firstrole/internal/models"
 )
@@ -75,6 +76,9 @@ func TestUsageAndRetry(t *testing.T) {
 	if tags.Role != "Software Engineering" || calls != 2 || len(rows) != 2 {
 		t.Fatal(tags, calls, rows)
 	}
+	if rows[0].HTTPStatus != http.StatusTooManyRequests || rows[1].HTTPStatus != http.StatusOK {
+		t.Fatal("incorrect response status", rows[0].HTTPStatus, rows[1].HTTPStatus)
+	}
 	if rows[0].CostUSD != nil {
 		t.Fatal("unknown retry cost invented")
 	}
@@ -94,6 +98,34 @@ func TestCacheKeyVersioned(t *testing.T) {
 	}
 }
 
+func TestCacheIdentityIncludesProviderAndSettings(t *testing.T) {
+	p := source()
+	client := &Client{Model: "same-model", URL: "https://example.com/v1/chat/completions", Key: "first"}
+	original := client.CacheKey(p)
+	client.Key = "rotated"
+	client.Provider = "compatible"
+	client.MinInterval = time.Second
+	rate := 0.5
+	client.InputRate = &rate
+	if client.CacheKey(p) != original {
+		t.Fatal("credential rotation, pricing, or pacing invalidated tags")
+	}
+	client.Provider = "gemini"
+	if client.CacheKey(p) == original {
+		t.Fatal("provider and generation settings missing from cache identity")
+	}
+	client.Provider = "compatible"
+	client.URL = "https://other.example.com/v1/chat/completions"
+	if client.CacheKey(p) == original {
+		t.Fatal("endpoint missing from cache identity")
+	}
+	client.URL = "https://example.com/v1/chat/completions"
+	client.Model = "new-model"
+	if client.CacheKey(p) == original {
+		t.Fatal("model missing from cache identity")
+	}
+}
+
 func TestAttemptMustPersistBeforeRequest(t *testing.T) {
 	calls := 0
 	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) { calls++ }))
@@ -110,5 +142,162 @@ func TestDuplicateCityAliasesRejected(t *testing.T) {
 	tags.Cities = []string{"Bangalore", "Bengaluru"}
 	if Validate(tags, source()) == nil {
 		t.Fatal("duplicate aliases accepted")
+	}
+}
+
+func TestRegionOnlyLocations(t *testing.T) {
+	for _, tc := range []struct{ region, city string }{
+		{"Goa", "Panaji"},
+		{"Tehri Garhwal", "New Tehri"},
+		{"  TEHRI  GARHWAL  ", "New Tehri"},
+	} {
+		t.Run(tc.region, func(t *testing.T) {
+			p := source()
+			p.Locations = []string{tc.region}
+			tags := valid()
+			tags.Cities = []string{tc.region}
+			tags.LocationEvidence = tc.region
+			if Validate(tags, p) == nil {
+				t.Fatal("region accepted as a city")
+			}
+			tags.Cities = []string{}
+			tags.LocationStatus = "region"
+			if err := Validate(tags, p); err != nil {
+				t.Fatal("supported region rejected", err)
+			}
+			p.Locations = []string{tc.city + ", " + tc.region}
+			tags.Cities = []string{tc.city}
+			tags.LocationStatus = "city"
+			tags.LocationEvidence = p.Locations[0]
+			if err := Validate(tags, p); err != nil {
+				t.Fatal("explicit settlement rejected", err)
+			}
+		})
+	}
+}
+
+func TestInternshipEmploymentType(t *testing.T) {
+	for _, kind := range []string{"Intern: Full Time", "Intern: Part Time", "Internship", "INTERN"} {
+		t.Run(kind, func(t *testing.T) {
+			p := source()
+			p.EmploymentType = kind
+			tags := valid()
+			tags.EmploymentType = "full-time"
+			if Validate(tags, p) == nil {
+				t.Fatal("internship reduced to working hours")
+			}
+			tags.EmploymentType = "internship"
+			if err := Validate(tags, p); err != nil {
+				t.Fatal("internship rejected", err)
+			}
+		})
+	}
+	p := source()
+	p.EmploymentType = "Internet Services: Full Time"
+	tags := valid()
+	tags.EmploymentType = "full-time"
+	if err := Validate(tags, p); err != nil {
+		t.Fatal("unrelated word treated as internship", err)
+	}
+}
+
+func TestCountryLocationEvidence(t *testing.T) {
+	for _, tc := range []struct {
+		name, country, evidence string
+		want                    bool
+	}{
+		{"source code", "IN", "IN", true},
+		{"country name", "IN", "India", true},
+		{"three letter code", "IND", "India", true},
+		{"source name", "India", "India", true},
+		{"invented country", "IN", "Nepal", false},
+		{"absent country", "", "India", false},
+		{"country substring", "IN", "Ind", false},
+		{"extra city", "IN", "India; Mumbai", false},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			p := source()
+			p.Title, p.Description = "Hostess", "No experience required."
+			p.Locations = nil
+			p.Country = tc.country
+			tags := valid()
+			tags.Role, tags.RoleEvidence = "Business and Operations", p.Title
+			tags.Cities = []string{}
+			tags.LocationStatus = "region"
+			tags.LocationEvidence = tc.evidence
+			if err := Validate(tags, p); (err == nil) != tc.want {
+				t.Fatalf("Validate() = %v, want accepted %v", err, tc.want)
+			}
+		})
+	}
+	p := source()
+	p.Title, p.Description = "Hostess", "No experience required."
+	p.Locations, p.Country = nil, "IN"
+	tags := valid()
+	tags.Cities, tags.LocationStatus, tags.LocationEvidence = []string{}, "region", "India"
+	for _, evidence := range []string{"India", "IN"} {
+		tags.RoleEvidence = evidence
+		if err := Validate(tags, p); err == nil || err.Error() != "role evidence absent from source" {
+			t.Fatal("country accepted as role evidence", evidence, err)
+		}
+	}
+	tags.RoleEvidence = p.Title
+	tags.Cities, tags.LocationStatus = []string{"India"}, "city"
+	if Validate(tags, p) == nil {
+		t.Fatal("country accepted as a city")
+	}
+	tags.Cities = []string{"Mumbai"}
+	if Validate(tags, p) == nil {
+		t.Fatal("country evidence licensed an unsupported city")
+	}
+}
+
+func TestJoinedLocationEvidence(t *testing.T) {
+	p := source()
+	p.Locations = []string{"Gurugram, Haryana", "Noida, Uttar Pradesh"}
+	p.Description += " Benefits include trips to Mumbai."
+	for _, tc := range []struct {
+		name, evidence string
+		cities         []string
+		want           bool
+	}{
+		{"semicolon", "Gurugram; Noida", []string{"Gurugram", "Noida"}, true},
+		{"comma", "Gurugram, Noida", []string{"Gurugram", "Noida"}, true},
+		{"pipe", "Gurugram | Noida", []string{"Gurugram", "Noida"}, true},
+		{"full locations", "Gurugram, Haryana; Noida, Uttar Pradesh", []string{"Gurugram", "Noida"}, true},
+		{"mixed delimiters", "Gurugram, Haryana | Noida; Uttar Pradesh", []string{"Gurugram", "Noida"}, true},
+		{"verbatim location", "Gurugram, Haryana", []string{"Gurugram"}, true},
+		{"invented fragment", "Gurugram; Noida; Pune", []string{"Gurugram", "Noida"}, false},
+		{"description fragment", "Gurugram; Noida; Mumbai", []string{"Gurugram", "Noida", "Mumbai"}, false},
+		{"partial fragment", "Gurugram; Noi", []string{"Gurugram", "Noida"}, false},
+		{"empty fragment", "Gurugram;; Noida", []string{"Gurugram", "Noida"}, false},
+		{"unsupported city", "Gurugram; Noida", []string{"Gurugram", "Noida", "Pune"}, false},
+		{"partial city token", "Gurugram; Noida", []string{"Gurugram", "Noi"}, false},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			tags := valid()
+			tags.Cities, tags.LocationEvidence = tc.cities, tc.evidence
+			if err := Validate(tags, p); (err == nil) != tc.want {
+				t.Fatalf("Validate() = %v, want accepted %v", err, tc.want)
+			}
+		})
+	}
+}
+
+func TestObservedCitySpelling(t *testing.T) {
+	p := source()
+	p.Locations = []string{"Swai Madhopur"}
+	tags := valid()
+	tags.Cities, tags.LocationEvidence = []string{"Sawai Madhopur"}, "Swai Madhopur"
+	if err := Validate(tags, p); err != nil {
+		t.Fatal("canonical city rejected for observed source spelling", err)
+	}
+	tags.Cities = []string{"Jaipur"}
+	if Validate(tags, p) == nil {
+		t.Fatal("unrelated city accepted for observed source spelling")
+	}
+	tags.Cities, tags.LocationEvidence = []string{"Sawai Madhopur"}, "Sawai Madhopur"
+	if Validate(tags, p) == nil {
+		t.Fatal("rewritten evidence accepted instead of verbatim source")
 	}
 }

@@ -94,7 +94,7 @@ func run() error {
 		return err
 	}
 	defer store.Pool.Close()
-	engine := &ingest.Engine{Store: store, Fetch: fetch, RegistryPath: c.SourceRegistry, Definitions: definitions, Tagger: &tagging.Client{URL: c.ModelURL, Model: c.Model, Key: c.ModelKey, InputRate: c.InputRate, OutputRate: c.OutputRate}, MaxTags: c.MaxTagPosts, Concurrency: c.TagConcurrency, Timeout: c.RefreshTimeout}
+	engine := &ingest.Engine{Store: store, Fetch: fetch, RegistryPath: c.SourceRegistry, Definitions: definitions, Tagger: &tagging.Client{URL: c.ModelURL, Model: c.Model, Key: c.ModelKey, Provider: c.ModelProvider, InputRate: c.InputRate, OutputRate: c.OutputRate, CachedInputRate: c.CachedInputRate, MinInterval: c.ModelMinInterval}, MaxTags: c.MaxTagPosts, Concurrency: c.TagConcurrency, Timeout: c.RefreshTimeout}
 	run, err := engine.Run(ctx)
 	b, encodeErr := json.MarshalIndent(run, "", "  ")
 	if encodeErr != nil {

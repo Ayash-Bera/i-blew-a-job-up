@@ -4,15 +4,19 @@ Fresher jobs and internships in India, with original source links, duplicate han
 
 Repository: https://github.com/Ayash-Bera/i-blew-a-job-up
 
-Live preview: https://i-blew-a-job-up.vercel.app
+Live tool: https://i-blew-a-job-up-ashen.vercel.app
 
 ## Status
 
-The implemented tool is deployed as a read-only preview with real collected listings. Durable database configuration and model credentials are still required to enable tagging and unattended refresh. Human evaluation and measured model costs are pending. A saved snapshot is explicitly marked read-only. Pending tags and unknown costs are never presented as measured results.
+The live tool publishes 221 unique, current India fresher and internship posts with validated role and city tags. The database deployment uses a dedicated Neon Free Postgres database. Public API verification on November 18, 2026, 10:25:42 PM IST passed pagination, count consistency, filters, CSV export, and refresh authorization.
 
-The qualifying dataset target is at least 200 unique current posts. The final accuracy result requires 50 human-reviewed records. See [SETUP.md](SETUP.md) for runtime configuration and [EVALUATION.md](EVALUATION.md) for the evaluation procedure.
+An authenticated repeat refresh checked all 221 posts, reused 221 cached results, made zero provider requests, and reported zero errors. The daily schedule is deployed, but an actual scheduled invocation has not yet been observed. The 50-row human review, applicant video, and forms remain pending. The assignment is not ready for submission.
 
-The latest complete live-source check retained 226 eligible posts from 11 employers across 12 enabled source boards in 27.82 seconds. That is a collection result, with model tags still pending. The data is concentrated in hospitality: 191 records came from Marriott. Known expiry dates can reduce this count before submission, so a fresh check and a larger buffer are required.
+First-load tagging list-price spend is $0.1104267: $0.52584143 per 1,000 distinct attempted versions, or $0.49966833 per 1,000 published posts. These figures include failed attempts and retries in the selected first-load runs, exclude v1 development, and are not reconciled cash charges. See [EVALUATION.md](EVALUATION.md) for reproducible accounting and audit commands.
+
+The frozen dataset represents 11 employers. Marriott International contributes 186 of 221 posts (84.2%), so the later accuracy result must disclose that concentration. 17 posts have known expiry before the submission deadline, and 113 have no supplied expiry. Recheck freshness on submission day.
+
+The blind 50-post sample excludes 28 pilot and diagnostic IDs. No human accuracy result is claimed. See [SETUP.md](SETUP.md) for the tested runtime configuration.
 
 ## Structure
 
@@ -29,7 +33,7 @@ Only explicit India locations and evidence of fresher or student eligibility qua
 
 Duplicate groups retain source observations and employer-scoped identifiers. Greenhouse posting IDs are distinguished from underlying vacancy IDs. Exact-content mirror matching is conservative so separate requisitions remain separate jobs.
 
-The Marriott connector rechecks a curated inventory of public listing URLs. Its completeness means that inventory was checked, not that every employer vacancy was discovered. Employer feeds discover new listings during refreshes; expanding the Marriott inventory is a separate collection step. Apna access was restricted during research and its connector is disabled. It is excluded from the current deployable snapshot.
+The Marriott connector rechecks a curated inventory of public listing URLs. Its completeness means that inventory was checked, not that every employer vacancy was discovered. Employer feeds discover new listings during refreshes; expanding the Marriott inventory is a separate collection step. Apna access was restricted during research and its connector is disabled. It is excluded from the deployed source set.
 
 Production publishes successfully validated model tags. A read-only preview can display real records with pending tags, clearly identified as incomplete. Job descriptions are untrusted input; the model receives a fixed extraction prompt, a closed taxonomy, and a strict response schema. Failed outputs stay outside the production count.
 

@@ -1,12 +1,24 @@
 package normalize
 
 import (
+	"slices"
 	"strings"
 	"testing"
 	"time"
 
 	"firstrole/internal/models"
 )
+
+func TestCitySpellingAlias(t *testing.T) {
+	for _, spelling := range []string{"Swai Madhopur", "Sawai Madhopur", " SWAI MADHOPUR "} {
+		if got := City(spelling); got != "Sawai Madhopur" {
+			t.Errorf("City(%q) = %q", spelling, got)
+		}
+	}
+	if got := Cities([]string{"Swai Madhopur, Rajasthan", "Sawai Madhopur"}); !slices.Equal(got, []string{"Sawai Madhopur"}) {
+		t.Fatal("canonical city missing or repeated", got)
+	}
+}
 
 func post() models.RawPosting {
 	return models.RawPosting{SourceID: "company", SourceKind: "lever", PostingID: "123", Title: "Software Engineer", Company: "Example", Country: "IN", Locations: []string{"Bangalore, India"}, Description: "Fresh graduates are welcome. Build customer applications.", URL: "https://jobs.example.com/123"}

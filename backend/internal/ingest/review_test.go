@@ -43,7 +43,7 @@ func TestAuthoritativeClosureSuppressesMirror(t *testing.T) {
 func TestInitialCohortCannotDrift(t *testing.T) {
 	p := raw("one")
 	client := &tagging.Client{Model: "test"}
-	key := tagging.CacheKey(p, client.Model)
+	key := client.CacheKey(p)
 	now := time.Now()
 	state := db.Empty()
 	state.InitialCohort = &models.InitialCohort{StartedAt: now, Versions: map[string]string{"one": key}}

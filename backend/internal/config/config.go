@@ -15,9 +15,9 @@ import (
 
 type Config struct {
 	Port, DatabaseURL, MigrationDatabaseURL, SnapshotPath, SourceRegistry string
-	CronSecret, AllowedOrigin, ModelURL, Model, ModelKey                  string
-	InputRate, OutputRate                                                 *float64
-	RefreshTimeout                                                        time.Duration
+	CronSecret, AllowedOrigin, ModelURL, Model, ModelKey, ModelProvider   string
+	InputRate, OutputRate, CachedInputRate                                *float64
+	RefreshTimeout, ModelMinInterval                                      time.Duration
 	MaxTagPosts, TagConcurrency                                           int
 }
 
@@ -25,14 +25,23 @@ func Load() (Config, error) {
 	if err := godotenv.Load(); err != nil && !errors.Is(err, os.ErrNotExist) {
 		return Config{}, fmt.Errorf("load environment: %w", err)
 	}
-	c := Config{Port: os.Getenv("PORT"), DatabaseURL: os.Getenv("DATABASE_URL"), MigrationDatabaseURL: os.Getenv("MIGRATION_DATABASE_URL"), SnapshotPath: os.Getenv("SNAPSHOT_PATH"), SourceRegistry: os.Getenv("SOURCE_REGISTRY"), CronSecret: os.Getenv("CRON_SECRET"), AllowedOrigin: os.Getenv("ALLOWED_ORIGIN"), ModelURL: os.Getenv("MODEL_URL"), Model: os.Getenv("MODEL_NAME"), ModelKey: os.Getenv("MODEL_API_KEY")}
+	c := Config{Port: os.Getenv("PORT"), DatabaseURL: os.Getenv("DATABASE_URL"), MigrationDatabaseURL: os.Getenv("MIGRATION_DATABASE_URL"), SnapshotPath: os.Getenv("SNAPSHOT_PATH"), SourceRegistry: os.Getenv("SOURCE_REGISTRY"), CronSecret: os.Getenv("CRON_SECRET"), AllowedOrigin: os.Getenv("ALLOWED_ORIGIN"), ModelURL: os.Getenv("MODEL_URL"), Model: os.Getenv("MODEL_NAME"), ModelKey: os.Getenv("MODEL_API_KEY"), ModelProvider: os.Getenv("MODEL_PROVIDER")}
 	if c.Port == "" {
 		c.Port = "8080"
+	}
+	if c.ModelProvider == "" {
+		c.ModelProvider = "compatible"
+	}
+	if c.ModelProvider != "compatible" && c.ModelProvider != "gemini" {
+		return c, errors.New("MODEL_PROVIDER must be compatible or gemini")
 	}
 	if c.ModelURL != "" {
 		u, err := url.Parse(c.ModelURL)
 		if err != nil || u.Scheme != "https" || u.Host == "" || u.User != nil {
 			return c, errors.New("MODEL_URL must be an HTTPS endpoint without embedded credentials")
+		}
+		if c.ModelProvider == "gemini" && (u.RawQuery != "" || u.Fragment != "" || c.Model == "" || u.Path != "/v1beta/models/"+c.Model+":generateContent") {
+			return c, errors.New("Gemini MODEL_URL must be the full v1beta generateContent endpoint for MODEL_NAME without a query or fragment")
 		}
 	}
 	var err error
@@ -42,6 +51,14 @@ func Load() (Config, error) {
 	if c.OutputRate, err = rate(os.Getenv("MODEL_OUTPUT_USD_PER_MILLION")); err != nil {
 		return c, fmt.Errorf("output rate: %w", err)
 	}
+	if c.CachedInputRate, err = rate(os.Getenv("MODEL_CACHED_INPUT_USD_PER_MILLION")); err != nil {
+		return c, fmt.Errorf("cached input rate: %w", err)
+	}
+	interval, err := number(os.Getenv("MODEL_MIN_INTERVAL_MS"), 0, 0, 3600000)
+	if err != nil {
+		return c, fmt.Errorf("model interval: %w", err)
+	}
+	c.ModelMinInterval = time.Duration(interval) * time.Millisecond
 	seconds, err := number(os.Getenv("REFRESH_TIMEOUT_SECONDS"), 240, 30, 780)
 	if err != nil {
 		return c, err

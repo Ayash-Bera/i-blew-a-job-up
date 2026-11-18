@@ -126,17 +126,22 @@ type TagRecord struct {
 }
 
 type Usage struct {
-	ID                  string    `json:"id"`
-	RunID               string    `json:"run_id"`
-	JobID               string    `json:"job_id"`
-	ContentKey          string    `json:"content_key"`
-	Model               string    `json:"model"`
-	PromptVersion       string    `json:"prompt_version"`
-	CreatedAt           time.Time `json:"created_at"`
-	InputTokens         *int      `json:"input_tokens"`
-	OutputTokens        *int      `json:"output_tokens"`
-	InputUSDPerMillion  *float64  `json:"input_usd_per_million"`
-	OutputUSDPerMillion *float64  `json:"output_usd_per_million"`
-	CostUSD             *float64  `json:"cost_usd"`
-	Status              string    `json:"status"`
+	ID                       string    `json:"id"`
+	RunID                    string    `json:"run_id"`
+	JobID                    string    `json:"job_id"`
+	ContentKey               string    `json:"content_key"`
+	Model                    string    `json:"model"`
+	PromptVersion            string    `json:"prompt_version"`
+	CreatedAt                time.Time `json:"created_at"`
+	InputTokens              *int      `json:"input_tokens"`
+	OutputTokens             *int      `json:"output_tokens"`
+	CachedInputTokens        *int      `json:"cached_input_tokens,omitempty"`
+	ThinkingTokens           *int      `json:"thinking_tokens,omitempty"`
+	InputUSDPerMillion       *float64  `json:"input_usd_per_million"`
+	OutputUSDPerMillion      *float64  `json:"output_usd_per_million"`
+	CachedInputUSDPerMillion *float64  `json:"cached_input_usd_per_million,omitempty"`
+	CostUSD                  *float64  `json:"cost_usd"`
+	Status                   string    `json:"status"`
+	HTTPStatus               int       `json:"http_status,omitempty"`
+	FailureReason            string    `json:"failure_reason,omitempty"`
 }
