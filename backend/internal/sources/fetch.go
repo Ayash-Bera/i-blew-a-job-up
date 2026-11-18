@@ -190,7 +190,7 @@ func (c *collector) requestBytes(ctx context.Context, method, url string, body a
 		if err != nil {
 			return nil, fmt.Errorf("create request: %w", err)
 		}
-		request.Header.Set("User-Agent", "FirstRole/1.0 (public employer job listings)")
+		request.Header.Set("User-Agent", "IBlewAJobUp/1.0 (public employer job listings)")
 		request.Header.Set("Accept", "application/json")
 		if body != nil {
 			request.Header.Set("Content-Type", "application/json")

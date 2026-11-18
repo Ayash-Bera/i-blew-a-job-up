@@ -11,7 +11,7 @@ import urllib.request
 
 def verify(base, minimum, snapshot=False):
     def get(path):
-        request = urllib.request.Request(base.rstrip("/") + path, headers={"User-Agent": "FirstRole-verification/1.0"})
+        request = urllib.request.Request(base.rstrip("/") + path, headers={"User-Agent": "IBlewAJobUp-verification/1.0"})
         with urllib.request.urlopen(request, timeout=30) as response:
             assert response.status == 200
             return response.read().decode()

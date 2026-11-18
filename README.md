@@ -1,10 +1,10 @@
-# FirstRole
+# I Blew a Job Up
 
 Fresher jobs and internships in India, with original source links, duplicate handling, role and city tags, and a daily refresh pipeline.
 
-Repository: https://github.com/Ayash-Bera/firstrole-india
+Repository: https://github.com/Ayash-Bera/i-blew-a-job-up
 
-Live preview: https://firstrole-india.vercel.app
+Live preview: https://i-blew-a-job-up.vercel.app
 
 ## Status
 

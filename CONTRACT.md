@@ -1,6 +1,6 @@
-# FirstRole implementation contract
+# API contract
 
-Working code is staged here for the requested repository. Public product name: FirstRole. No mock listings or invented evaluation results.
+I Blew a Job Up collects public fresher jobs and internships in India. Evaluation results remain pending until measured.
 
 ## Interfaces
 
@@ -18,14 +18,3 @@ Role taxonomy: Software Engineering; Data and Analytics; Quality Engineering; In
 Location status: city, region, remote, unspecified. Work mode: onsite, hybrid, remote, unspecified. Employment type: internship, full-time, part-time, apprenticeship, contract, unspecified.
 
 Source connector entry point: `sources.Fetch(ctx context.Context, registryPath string) ([]models.SourceResult, error)`. Source registry is JSON array of models.Source. Fetch failures appear in each SourceResult and never become complete empty boards. Functions honor cancellation and bounded concurrency.
-
-## Ownership
-
-- source leaf: `backend/internal/sources/**`, `data/**`, `scripts/source-*`. Expands real source coverage, implements adapters and preserves machine-readable evidence. Does not own go.mod or shared models.
-- backend leaf: `backend/**` except `backend/internal/sources/**`. Implements normalized eligibility, deduplication, strict model tagging, cost accounting, Postgres persistence, daily refresh route, API, CLI, tests. May extend shared models while preserving connector fields.
-- frontend leaf: `web/**`. Implements public search, filters, states, source/methodology/evidence views. No server business logic, mock data, or publication.
-- root: integration, project documentation, hosting, evaluation scripts, artifacts, independent verification. Root does not edit leaf-owned files until coordinating ownership handoff.
-
-Production target is Vercel through its CLI. Initially use separate frontend and Go projects unless verified Services support allows a single project. Postgres is durable storage, never the serverless filesystem. Missing credentials stay a visible blocker. No push or PR without the user's exact-action approval. No external submissions. Video is user-owned; human reference labels cannot be invented.
-
-States: source READY; backend READY; frontend READY. Shared interface verified by reading this file before dispatch. Root integration remains OPEN.

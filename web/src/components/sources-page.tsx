@@ -33,7 +33,7 @@ export function SourcesPage() {
 
   return <main id="main-content" className="page-width sources-page">
     <Link href="/" className="back-link"><Icon name="arrow" size={15} style={{ transform: "rotate(180deg)" }} />Back to opportunities</Link>
-    <section className="sources-hero"><p className="eyebrow">THE WORK BEHIND THE LISTINGS</p><h1>A source for every role.<br /><span>A record of every check.</span></h1><p>FirstRole brings public job listings into one searchable index. Here is where they come from, how they qualify, and what the numbers can tell you.</p></section>
+    <section className="sources-hero"><p className="eyebrow">THE WORK BEHIND THE LISTINGS</p><h1>A source for every role.<br /><span>A record of every check.</span></h1><p>I Blew a Job Up brings public job listings into one searchable index. Here is where they come from, how they qualify, and what the numbers can tell you.</p></section>
     {errors.length > 0 && <div className="notice notice-warning" role="alert"><Icon name="clock" /><div><strong>Some live records could not be loaded.</strong><span> {errors.join(", ")} unavailable. No saved figures are being substituted.</span></div><button className="text-button" onClick={() => { setLoading(true); setRevision((value) => value + 1); }}>Retry <Icon name="refresh" size={15} /></button></div>}
     {stats?.refresh_status === "snapshot_read_only" && <div className="notice notice-warning" role="status"><Icon name="clock" /><div><strong>Saved data preview.</strong><span> Daily refresh is not enabled. Model tagging and the final human audit are not yet complete.</span></div></div>}
     <section className="source-metrics" aria-label="Dataset overview" aria-busy={loading}>

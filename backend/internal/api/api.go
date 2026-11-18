@@ -320,7 +320,7 @@ func (s *Server) export(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	w.Header().Set("Content-Type", "text/csv; charset=utf-8")
-	w.Header().Set("Content-Disposition", "attachment; filename=firstrole-jobs.csv")
+	w.Header().Set("Content-Disposition", "attachment; filename=i-blew-a-job-up-jobs.csv")
 	if err := WriteCSV(csv.NewWriter(w), state.Jobs); err != nil {
 		slog.Error("export dataset", "error", err)
 	}

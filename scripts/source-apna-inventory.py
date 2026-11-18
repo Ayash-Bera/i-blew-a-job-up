@@ -23,7 +23,7 @@ def fetch(url):
         if STOP.is_set():
             raise RuntimeError("Stopped after access restriction")
         try:
-            request = urllib.request.Request(url, headers={"User-Agent": "FirstRole/1.0 public job listings"})
+            request = urllib.request.Request(url, headers={"User-Agent": "IBlewAJobUp/1.0 public job listings"})
             with urllib.request.urlopen(request, timeout=35) as response:
                 return response.read().decode()
         except urllib.error.HTTPError as error:

@@ -24,7 +24,7 @@ export async function GET(request: NextRequest, context: { params: Promise<{ pat
       "Content-Type": endpoint === "export.csv" ? "text/csv; charset=utf-8" : "application/json",
       "Cache-Control": "no-store",
     });
-    if (endpoint === "export.csv") headers.set("Content-Disposition", "attachment; filename=firstrole-jobs.csv");
+    if (endpoint === "export.csv") headers.set("Content-Disposition", "attachment; filename=i-blew-a-job-up-jobs.csv");
     return new Response(upstream.body, { headers, status: upstream.status });
   } catch {
     return NextResponse.json({ error: "Job service temporarily unavailable" }, { status: 502 });

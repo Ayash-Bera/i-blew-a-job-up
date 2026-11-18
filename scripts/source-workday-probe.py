@@ -39,7 +39,7 @@ OUT.mkdir(exist_ok=True)
 
 
 def get_json(url, body=None):
-    request = urllib.request.Request(url, data=None if body is None else json.dumps(body).encode(), headers={"User-Agent": "FirstRole/1.0 public-jobs-research", "Content-Type": "application/json"})
+    request = urllib.request.Request(url, data=None if body is None else json.dumps(body).encode(), headers={"User-Agent": "IBlewAJobUp/1.0 public-jobs-research", "Content-Type": "application/json"})
     with urllib.request.urlopen(request, timeout=35) as response:
         return json.load(response)
 
