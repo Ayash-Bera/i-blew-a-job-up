@@ -1,0 +1,3911 @@
+{
+  "schema_version": 1,
+  "review_kind": "automated_source_comparison",
+  "human_review": {
+    "signed_rows_at_snapshot": 0,
+    "sample_size": 50,
+    "complete": false
+  },
+  "comparison": {
+    "disjoint_samples": true,
+    "overlap": 0,
+    "live_vacancies_rechecked": false,
+    "work_mode_scored": false,
+    "employment_type_scored": false
+  },
+  "historical": {
+    "version": "role-city-v3",
+    "label": "Historical v3",
+    "sample_size": 50,
+    "sample_frozen_at": "2026-11-19T07:13:53.739770+00:00",
+    "sampling_population": 210,
+    "published_population": 240,
+    "metrics": {
+      "role": {
+        "matches": 50,
+        "denominator": 50
+      },
+      "location": {
+        "matches": 47,
+        "denominator": 50
+      },
+      "joint": {
+        "matches": 47,
+        "denominator": 50
+      }
+    },
+    "source_concentration": {
+      "Marriott International": 42,
+      "Adobe": 1,
+      "QAD": 2,
+      "Paytm": 1,
+      "Motorola Solutions": 1,
+      "Forma": 1,
+      "Certa": 1,
+      "Drivetrain": 1
+    },
+    "reference_location_status_counts": {
+      "city": 43,
+      "region": 5,
+      "remote": 2
+    },
+    "rows": [
+      {
+        "row": 1,
+        "id": "523d07ae78ba8e0ec7b5cac2cf558546c5f3863e3ae75ffaf00ee68287a8854f",
+        "title": "Guest Experience Expert",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/guest-experience-expert/job/P1-6879442-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Navi Mumbai"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Navi Mumbai"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Guest service, check-in support and operational requests are hospitality duties; no related work experience is required. Navi Mumbai and country IN are explicit.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 2,
+        "id": "cf0e13165d47111a61ac12c24b07528c94264a5ad76d9f74dc9ba84a94210f82",
+        "title": "Marketing Coordinator",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/marketing-coordinator/job/P1-7202202-0",
+        "reference": {
+          "role": "Sales and Marketing",
+          "cities": [
+            "Bengaluru"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Sales and Marketing",
+          "cities": [
+            "Bengaluru"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Brand promotion, selling upgrades and scheduling sales tours are marketing and sales duties; no related work experience is required. Bengaluru and country IN are explicit.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 3,
+        "id": "2510c69d2b826aa2f7a1c760fc84d14a13a4e24b0b2548e410a3716d6dfabfe8",
+        "title": "Attendant-Food & Beverage",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/attendant-food-beverage/job/P1-6700527-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Pune"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Pune"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Food-service setup, stocking, cleaning and closing work are hospitality operations; no related work experience is required. Pune and country IN are explicit.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 4,
+        "id": "605952dcf33129e224347e544e43bd189b6c729650fb2c2db71679a1f18e26cb",
+        "title": "Guest Services Associate - Front Office",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/guest-services-associate-front-office/job/P1-7614026-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Mumbai"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Mumbai"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Guest requests, directions and coordination with hotel departments are hospitality support; no related work experience is required. Mumbai and country IN are explicit.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 5,
+        "id": "320bcab57d0a61a31c820ed2f8c06fd13c83afc874fa605e82cdcac2fd083f80",
+        "title": "Front Office Associate",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/front-office-associate/job/P1-7563062-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Raipur"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Raipur"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Guest check-in support and hotel operational requests are hospitality work; no related work experience is required. Raipur and country IN are explicit.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 6,
+        "id": "b492bfb719fb06b7292b77d35be0a3cb182c347701650be9c32d731885d39ff0",
+        "title": "Food & Beverage Associate",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/food-beverage-associate/job/P1-7556318-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Siliguri"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Siliguri"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Food-service setup, stocking, cleaning and closing duties are hospitality operations; no related work experience is required. Siliguri and country IN are explicit.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 7,
+        "id": "817e30ac6e5d6c5bbb8631099c42c54c1798fe0b7d027d995dd3bf0647892328",
+        "title": "Housekeeping Associate",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/housekeeping-associate/job/P1-7130150-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [],
+          "location_status": "region"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [],
+          "location_status": "region"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Guest-room cleaning, linen replacement and housekeeping are hospitality operations; no related work experience is required. Only Goa is listed, which establishes an Indian state but no city.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 8,
+        "id": "d923abf72a4efbc9051fb2f87fc2ea28ff9c0bf3858a002965d630de6ca2bcc5",
+        "title": "Front Office Associate",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/front-office-associate/job/P1-7614108-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Bilaspur"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Bilaspur"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Guest check-in support and hotel operational requests are hospitality work; no related work experience is required. Bilaspur and country IN are explicit.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 9,
+        "id": "666eff13f42704a1143f514443b58d2c48a59e4887bcf4c6196b006e06819f85",
+        "title": "Front Office Associate",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/front-office-associate/job/P1-7705989-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Siliguri"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Siliguri"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Hotel check-ins, payments, guest calls and cashier reports are hospitality operations; no related work experience is required. Siliguri and country IN are explicit.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 10,
+        "id": "e10b638b1e7ee89bfde9f56997fb9909b4cdbdc54e167ebc3764ef4d2322222f",
+        "title": "Housekeeping Associate",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/housekeeping-associate/job/P1-7556270-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Siliguri"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Siliguri"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Guest-room cleaning, linen replacement and housekeeping are hospitality operations; no related work experience is required. Siliguri and country IN are explicit.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 11,
+        "id": "44e56ad1ddfefd72a9af71448a587efa93e77b655650386373d5385ca20c49f2",
+        "title": "Front Office Associate",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/front-office-associate/job/P1-7577574-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Bengaluru"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Bengaluru"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Guest check-ins, billing, room coordination and switchboard duties are hospitality operations; no related work experience is required. Bengaluru and country IN are explicit; New York appears only in brand history.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 12,
+        "id": "ea38e7c78acbeb2d1c63f8d108df7bc9ef4fc19f85e4538cfb6f9811061b4001",
+        "title": "At Your Service Agent",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/at-your-service-agent/job/P1-7696981-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "New Delhi"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "New Delhi"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Handling guest calls, requests, room-service orders and hotel information is customer support within hospitality; no related work experience is required. New Delhi and country IN are explicit.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 13,
+        "id": "cecf08947f55c8b2d31d199d114261d30f508c4f58d21c66df758286760ae06a",
+        "title": "Loss Prevention Associate",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/loss-prevention-associate/job/P1-7602065-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Bengaluru"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Bengaluru"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Patrols, guest access, incident response and loss-prevention reports are hotel operations under the hospitality boundary, without systems or security-engineering duties. No related experience is required; possible local licensing is mentioned. Bengaluru and country IN are explicit.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 14,
+        "id": "2f8a92f0c1c37cbc5b02e8b366d47bb9389814a3365e2069675a2e35a9f18961",
+        "title": "Reservations Associate",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/reservations-associate/job/P1-7482897-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [],
+          "location_status": "region"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [],
+          "location_status": "region"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Guest-service and hotel operational requests are hospitality duties; no related work experience is required. Only Goa is listed, which establishes an Indian state but no city.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 15,
+        "id": "3056963858f6b39c5e17a32f053cfda0198a73285bee9de4bfd89d32c2a0ba9f",
+        "title": "Guest Service Associate - Food and Beverage",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/guest-service-associate-food-and-beverage/job/P1-7705882-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Chennai"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Chennai"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Food-service setup, stocking, cleaning and closing work are hospitality operations; no related work experience is required. Chennai and country IN are explicit.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 16,
+        "id": "f325535e43801cc065be74f72b94a87f42fc8bae1de1d1533632c70f5d2b3fb8",
+        "title": "Loss Prevention Associate",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/loss-prevention-associate/job/P1-7647416-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Nashik"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Nashik"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Handling guest incidents, theft investigations and disturbance reports is hotel loss-prevention operations under the hospitality boundary, without systems or security-engineering duties. No related experience is required; possible local licensing is mentioned. Nashik and country IN are explicit.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 17,
+        "id": "bb75ae80ec778fdcf22ee6b1acf778dcf17550bae9372c081d68e1a22038fe48",
+        "title": "Receiving Associate",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/receiving-associate/job/P1-7673272-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [],
+          "location_status": "region"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [],
+          "location_status": "region"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Receiving deliveries, moving stock, storing perishables and checking inventory are logistics operations; no related work experience is required. Only Goa is listed, which establishes an Indian state but no city.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 18,
+        "id": "9a18721ff485222a901885156817ed12c758fb4fe4630bcdf68fde47bf39ae59",
+        "title": "Laundry Associate",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/laundry-associate/job/P1-7612186-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "New Delhi"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "New Delhi"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Uniform distribution, linen inventory and replacement duties are hotel operations. The source explicitly requires no related work experience and identifies New Delhi, India.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 19,
+        "id": "c6c1c1bb28fb3877980e02948229c694cdf2f927e645153bb8f96711c47c1140",
+        "title": "Guest Relations Associate",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/guest-relations-associate/job/P1-7707317-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Hyderabad"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Hyderabad"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Guest check-in support, requests and operational reports are hospitality duties. Hyderabad is the stated location; no related work experience is required.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 20,
+        "id": "6f258cd23ac007d5314b975dc433e9917cf8948710f81966f5f30a2b55bc2ae4",
+        "title": "Guest Experience Expert",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/guest-experience-expert/job/P1-7705381-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [],
+          "location_status": "region"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [],
+          "location_status": "region"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Guest service, luggage handling and front desk support are hospitality operations. The only stated location is Goa, a state rather than a city. No related work experience is required.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 21,
+        "id": "6b12ff415ae79421b656df0786bdc06fb34d8f044693ede5b3ccbf16d3df94a7",
+        "title": "Spa Service Expert",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/spa-service-expert/job/P1-7561267-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "New Delhi"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "New Delhi"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Appointment scheduling, guest check-in and spa payments are hospitality administration. Service promotion is incidental. New Delhi is explicit and no related work experience is required.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 22,
+        "id": "6d5c527d8064e8766351d9b5a68a669425e8267f5c7ac93a7f555471c334374d",
+        "title": "Spa Service Expert / Therapist",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/spa-service-expert-therapist/job/P1-7419568-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Bengaluru"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Bengaluru"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "The title includes Therapist, but the detailed duties describe spa bookings, guest support and payments rather than treatment. Classified from those administrative duties; Bengaluru is explicit and no related work experience is required. Title and description mismatch remains a review note.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 23,
+        "id": "658a03c4ae5a426ce737658e2843f2f0b0fd9f6fd623fef1bb96f975a30041c5",
+        "title": "Demi Chef de Partie",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/demi-chef-de-partie/job/P1-7707224-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Bengaluru"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Bengaluru"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Despite the chef title, the detailed duties are kitchen cleaning, basic preparation and dishware support. These are hospitality operations, and the source explicitly accepts no related work experience. Bengaluru is stated. The original employer page confirms the title and duty mismatch.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 24,
+        "id": "9afa2f02b2ae8aeacb6c6c6c4ddf4461859512084240dd1a02c128daf00e797d",
+        "title": "2027 Intern - Research PhD Intern",
+        "company": "Adobe",
+        "source_url": "https://adobe.wd5.myworkdayjobs.com/external_experienced/job/Bangalore/XMLNAME-2027-Intern---Research-PhD-Intern_R173016",
+        "reference": {
+          "role": "Data and Analytics",
+          "cities": [
+            "Bengaluru"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Data and Analytics",
+          "cities": [
+            "Bengaluru"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Research on machine learning algorithms, data and model evaluation fits modelling research. This internship requires current PhD enrollment, not prior employment; it is eligible for that student group. Bangalore normalizes to Bengaluru. The original page supplied no readable text, so the preserved description is the evidence.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 25,
+        "id": "e44fa60898ecf2b0e82bd32ab6a09429c2c422c1743c8cb24e01f6fb8dc49c5e",
+        "title": "Guest Relations Associate",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/guest-relations-associate/job/P1-7121758-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Pune"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Pune"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Guest check-ins, room assignments, billing and front desk coordination are hospitality operations. Pune is stated and no related work experience is required.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 26,
+        "id": "b9fe5a0309cb37f87bceeca2b1b47fbdb4050223e98577c0165d4ba9bb293d57",
+        "title": "Front Office Associate",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/front-office-associate/job/P1-7200434-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Gurugram"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Gurugram"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Front desk services and guest request handling are hospitality operations. The location names Gurugram with Haryana as the state. No related work experience is required.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 27,
+        "id": "a883f0616a73bd4ead3315f14c0d4e0c736191fb2a7bc86586d32680a0531f4e",
+        "title": "Information and Technology Associate",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/information-and-technology-associate/job/P1-7705863-0",
+        "reference": {
+          "role": "Infrastructure and Security",
+          "cities": [
+            "Bengaluru"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Infrastructure and Security",
+          "cities": [
+            "Bengaluru"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "The job maintains and troubleshoots computers, software, peripherals and connectivity. Systems support fits infrastructure; it does not describe software development. Bengaluru is stated and no related work experience is required.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 28,
+        "id": "f77380aa2e2ee289deea3e57ef7470ae9c95994f38fc00f2c942627ae9967f11",
+        "title": "Loss Prevention Associate",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/loss-prevention-associate/job/P1-7698064-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Bengaluru"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Bengaluru"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Physical incident investigation, property protection and guest disturbance handling are hotel operations, not technical security engineering. Bengaluru is stated and no related work experience is required; possible local licensing is a separate qualification.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 29,
+        "id": "a3102a66232b7bd6dd9b914905666232c55cf1952d3bb5db31f7a7166ffd79f0",
+        "title": "Talent Acquisition Intern",
+        "company": "QAD",
+        "source_url": "https://jobs.smartrecruiters.com/QADInc/744000161996480-talent-acquisition-intern",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Pune"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Pune"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Recruitment coordination, candidate communication and sourcing are people operations. The role accepts engineering students or graduates and explicitly requires work from the Pune office. General virtual-company boilerplate does not override this role-specific location.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 30,
+        "id": "779b2407d36f58799c212a448d49717827d58b515ba2a85ba9e8aa4fe3dc8ee7",
+        "title": "Spa Service Expert",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/spa-service-expert/job/P1-7577580-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Sohna"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Gurugram",
+            "Sohna"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": false,
+          "joint": false
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Spa bookings, guest check-in and payments are hospitality administration, with no related work experience required. The original page identifies Westin Sohna Resort and one locality named Sohna-Gurgaon. The historical reference uses Sohna as the specific place, treating Gurgaon as district or market context; this combined label remains ambiguous for human resolution.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 31,
+        "id": "4c2cace05b527a3a86536c2677fe7208784a6a524f315ccf80d458b1424b2fbe",
+        "title": "Intern-Talent Acquisition",
+        "company": "Paytm",
+        "source_url": "https://jobs.lever.co/paytm/9d497980-2032-440c-8bac-63fb53938acc",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Bengaluru"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Bengaluru"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Candidate sourcing, screening and interview scheduling are people operations; employer branding is secondary. The title explicitly identifies an internship and the description contains no experience minimum. Bangalore, Karnataka identifies an Indian city and normalizes to Bengaluru despite the empty country field.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 32,
+        "id": "37735011d36c53475bdc16676653638d74f50939f3060f96dc3d5cead1684b3a",
+        "title": "Loss Prevention Associate",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/loss-prevention-associate/job/P1-6480085-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Chennai"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Chennai"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "The duties concern physical theft, incident reports and guest disturbances within a hotel. They fit hospitality operations rather than technical security engineering. Chennai is stated, and no related work experience is required; possible local licensing is separate.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 33,
+        "id": "f71e46aa26f5221fcd135b30140c9a3dc33de1db5147b1f9281308784f6c4b04",
+        "title": "Clerk-Reservations",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/clerk-reservations/job/P1-7649429-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "New Delhi"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "New Delhi"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Reservation entry, changes, cancellations and guest enquiries are routine hospitality operations. Revenue techniques are incidental to reservations. New Delhi is stated and no related work experience is required.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 34,
+        "id": "71aa508d97645adc469d735caf55b95ec77e50644762f99b3b08791db6611fb0",
+        "title": "Guest Experience Expert",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/guest-experience-expert/job/P1-7623897-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Pushkar"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Pushkar"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Guest service requests, check-in support and operational reporting are hospitality duties. Pushkar is the stated Indian city and no related work experience is required.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 35,
+        "id": "4446716dc2f7c397b1584775e45ecbe0eb051198b3f6c7a48d5b54943a84e34f",
+        "title": "Loss Prevention Associate",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/loss-prevention-associate/job/P1-7354490-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Gurugram"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Gurugram"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Hotel incident handling, guest disturbance response and loss-prevention reporting fit hospitality operations. The location names Gurugram and explicitly requires no related work experience.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 36,
+        "id": "98d76097114108006c299175d5beb548dd425e21a0a15d360069a2f1e3d64daf",
+        "title": "Finance Intern",
+        "company": "Motorola Solutions",
+        "source_url": "https://motorolasolutions.wd5.myworkdayjobs.com/Careers/job/Bangalore-India/Finance-Intern_R69750",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Bengaluru"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Bengaluru"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Statutory audit, monthly closing and accounting compliance are finance duties. Bangalore normalizes to Bengaluru. This is an internship with qualification requirements but no prior employment minimum.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 37,
+        "id": "b2bd3d60f837c300840358c5192a2f94544fcfc66aea477ee11f102c122427ba",
+        "title": "Loss Prevention Associate",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/loss-prevention-associate/job/P1-7697081-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Tiruchirappalli"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Tiruchirappalli"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Hotel loss prevention centers on guest incidents, investigations and operational reporting. Tiruchirappalli is the stated location, and no related work experience is required.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 38,
+        "id": "359dd0a01bdc723d96abb21fd85c17347312ebc7cf34d4131a8919d09adb26b6",
+        "title": "Analytics Engineer Intern",
+        "company": "Forma",
+        "source_url": "https://job-boards.greenhouse.io/formaaiinc3/jobs/4235664005",
+        "reference": {
+          "role": "Data and Analytics",
+          "cities": [
+            "Pune"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Data and Analytics",
+          "cities": [
+            "Pune"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "The internship builds data ingestion pipelines and data architectures using Python and SQL. Pune is explicit. Practical technical experience is requested without a minimum period of professional employment.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 39,
+        "id": "586b0675b4e3d981db122fb325ef755e6e2cb5bbdfe8cf5dcc1f83f0facd4d83",
+        "title": "Recreation Associate",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/recreation-associate/job/P1-7439392-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Chennai"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Chennai"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Guest recreation scheduling, equipment upkeep and payments are hospitality operations. Chennai is explicit. No related work experience is required, although first-aid and equipment certifications are required.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 40,
+        "id": "72610acde430e69e729b1eb8d1ebc24dbfffb0d10d102f76ef2365b33f00895c",
+        "title": "Apprentice - Engineer",
+        "company": "QAD",
+        "source_url": "https://jobs.smartrecruiters.com/QADInc/744000161284809-apprentice-engineer",
+        "reference": {
+          "role": "Software Engineering",
+          "cities": [
+            "Mumbai"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Software Engineering",
+          "cities": [
+            "Mumbai"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "The apprentice develops and maintains application code; testing supports that development. Mumbai residency and initial onsite training are explicit, and the qualifications explicitly accept freshers.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 41,
+        "id": "96c8379439e7198c501130f8717ffd483b4553240d5f00b7e7864a9c0dacf1fc",
+        "title": "Guest Experience Expert",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/guest-experience-expert/job/P1-7715025-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [],
+          "location_status": "region"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [],
+          "location_status": "region"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Guest requests, check-in support and hotel reports are hospitality operations. Only Goa is provided, without a city. The listing explicitly requires no related work experience.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 42,
+        "id": "e04b5a4860ce63e2bd3426bec1fe1561883aca5a880a8d8ea4c0f801d3015f98",
+        "title": "Frontend Engineer - Internship",
+        "company": "Certa",
+        "source_url": "https://jobs.ashbyhq.com/certa/9f7caf0b-46ff-49ab-ae78-62deadec106e",
+        "reference": {
+          "role": "Software Engineering",
+          "cities": [],
+          "location_status": "remote"
+        },
+        "prediction": {
+          "role": "Software Engineering",
+          "cities": [
+            "Jaipur"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": false,
+          "joint": false
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "The six-month internship builds React interfaces and application features. It is listed for India, with explicit remote work from the location chosen by the worker. Optional office visits do not establish a job city. Projects are required, but prior employment is not.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 43,
+        "id": "7383085ee6b8064552ba484edd453a2cd0a5a6bcc27bc9b339508f5d8bd0e8d7",
+        "title": "Guest Service Associate - Front Office",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/guest-service-associate-front-office/job/P1-7459420-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Tirupati"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Tirupati"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Guest communications, service requests and front-office coordination are hospitality support. Tirupati is the stated location, and no related work experience is required.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 44,
+        "id": "b6288f6aaf2e110b52e183c4b8bdadaf07a35e17d26ff14eb89dfee41393ac3b",
+        "title": "Guest Services Associate - Front Office",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/guest-services-associate-front-office/job/P1-7716111-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Chennai"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Chennai"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Check-ins, billing, room assignments and guest support are front-office operations. Chennai is explicit. The listing requires no related work experience.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 45,
+        "id": "7de7b260bed4d2f182be87da78e3d540c0260d97db078bf06d6d2f1cb8b9790e",
+        "title": "University Intern-AP",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/university-intern-ap/job/P1-7625262-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Mumbai"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Mumbai"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "The student internship explicitly covers hotel operations and hotel management, which fall within hospitality. Mumbai is stated, and current college or university enrollment establishes internship eligibility.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 46,
+        "id": "b5daf091358d59098ecbbfca983236ffd3a9f9c2d6c136f2d0b1b081de7125f4",
+        "title": "Receiving Associate",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/receiving-associate/job/P1-7705383-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Ramnagar"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Ramnagar"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Receiving shipments, tracking inventory and reconciling invoices are logistics duties. Ramnagar is explicitly listed, and no related work experience is required.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 47,
+        "id": "75bd1672cf3c01c616989ddc9a3d032055267f522692bcf4685ffa6ca0da6e5f",
+        "title": "Butler Service Desk Agent",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/butler-service-desk-agent/job/P1-7612141-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "New Delhi"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "New Delhi"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Handling guest requests, directing calls and coordinating hotel services are hospitality support. New Delhi is the job location; New York appears only in company history. No related work experience is required.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 48,
+        "id": "587e84cd1dab2bd20226b3ba911587712ac5ccfac0d1ef34abaaff88b11cef3c",
+        "title": "Health Club Attendant",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/health-club-attendant/job/P1-7623148-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "New Delhi"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "New Delhi"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Cleaning recreation facilities, managing supplies and assisting guests are hospitality operations. New Delhi is explicit. No related work experience is required, although safety certifications are mandatory.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 49,
+        "id": "b3ee778654aafed5677f5cd2696e01559db7a9aed5a3c18567f2eb940d98cfc3",
+        "title": "Business Development Representative (BDR)",
+        "company": "Drivetrain",
+        "source_url": "https://jobs.lever.co/drivetrain/01cd2a2f-cc4a-471e-9fc7-b812d503f9bc",
+        "reference": {
+          "role": "Sales and Marketing",
+          "cities": [],
+          "location_status": "remote"
+        },
+        "prediction": {
+          "role": "Sales and Marketing",
+          "cities": [],
+          "location_status": "region"
+        },
+        "matches": {
+          "role": true,
+          "location": false,
+          "joint": false
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Outbound sales, lead generation and sales-channel development determine the role. India is listed and the description explicitly supports remote work; the foreign headquarters is not a job city. The experience range begins at zero, although prior sales achievements are also requested.",
+        "reference_certainty": "not_recorded"
+      },
+      {
+        "row": 50,
+        "id": "7648417a6a6f33b8369d56ff128835b91fef434b580a35428bc51433a145b0ee",
+        "title": "Loss Prevention Associate - JW Marriott Bengaluru Prestige Golfshire Resort & Spa",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/loss-prevention-associate-jw-marriott-bengaluru-prestige-golfshire-resort-spa/job/P1-7623155-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Bengaluru"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Bengaluru"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "",
+          "eligibility_evidence": ""
+        },
+        "review_note": "Investigating guest incidents and maintaining hotel loss-prevention reports fit hospitality operations. Bengaluru is explicit in both title and location, and no related work experience is required.",
+        "reference_certainty": "not_recorded"
+      }
+    ]
+  },
+  "current": {
+    "version": "role-city-v4",
+    "label": "Current v4",
+    "sample_size": 50,
+    "sample_frozen_at": "2026-11-19T10:57:11.431520+00:00",
+    "sampling_population": 137,
+    "published_population": 236,
+    "metrics": {
+      "role": {
+        "matches": 45,
+        "denominator": 50
+      },
+      "location": {
+        "matches": 50,
+        "denominator": 50
+      },
+      "joint": {
+        "matches": 45,
+        "denominator": 50
+      }
+    },
+    "source_concentration": {
+      "Marriott International": 39,
+      "Hevo Data": 1,
+      "Rubrik": 2,
+      "Medtronic": 1,
+      "HP": 2,
+      "Paytm": 3,
+      "Forma": 1,
+      "Emergent Labs": 1
+    },
+    "reference_location_status_counts": {
+      "city": 48,
+      "region": 2
+    },
+    "rows": [
+      {
+        "row": 1,
+        "id": "4b83a04394f642cd300e99974099aaece234185d2c99557bf648426cbdbcb2ec",
+        "title": "Attendant-Health Club",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/attendant-health-club/job/P1-7633517-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Bhopal"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Bhopal"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Wipe down fitness center machines and remove towels, trash, and debris from fitness center area.",
+          "location_evidence": "Bhopal",
+          "eligibility_evidence": "Related Work Experience: No related work experience."
+        },
+        "review_note": "Recreation-area upkeep and guest service establish hospitality operations. Country IN supports India eligibility. Required CPR, first-aid and other applicable certifications remain conditions despite zero experience.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 2,
+        "id": "86523ae239131b2e6a9ac8480c66eb0869d89a4e678391375d102552aac3e570",
+        "title": "SDE I",
+        "company": "Hevo Data",
+        "source_url": "https://jobs.lever.co/hevodata/6cbbe304-e065-4711-bf3e-756795d2bc2a",
+        "reference": {
+          "role": "Software Engineering",
+          "cities": [
+            "Bengaluru"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Software Engineering",
+          "cities": [
+            "Bengaluru"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Implement SaaS connectors for assigned applications, learning application specific nuances like basic auth and data extraction. . Assist in building simple REST API components, focusing on clean implementation and testing.",
+          "location_evidence": "Bangalore, India",
+          "eligibility_evidence": "0-1 years in software development, ideally with internships in integrations or data tools."
+        },
+        "review_note": "Building connectors and REST API components is the primary function; pipeline optimization and testing are supporting duties. Bangalore, India explicitly supports the work location. A relevant degree is requested; zero years is included.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 3,
+        "id": "4c458f1da89c50241122c8d11f18df5c1b8d30beb49f6ed78d3b2f5db67710c8",
+        "title": "Loss Prevention Associate",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/loss-prevention-associate/job/P1-7612183-0",
+        "reference": {
+          "role": "Other",
+          "cities": [
+            "New Delhi"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Infrastructure and Security",
+          "cities": [
+            "New Delhi"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": false,
+          "location": true,
+          "joint": false
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Conduct investigations and gather evidence related to theft/fraud or lost items, noise complaints, assault complaints, food poisoning complaints, and other guest complaints and incidents.",
+          "location_evidence": "New Delhi",
+          "eligibility_evidence": "Related Work Experience: No related work experience."
+        },
+        "review_note": "Primary duties are physical property security and incident investigation, with no computer-security work. Other is selected for this physical-security function; the broad hospitality boundary in Business and Operations leaves category uncertainty. Country IN supports India eligibility. Additional local licensing or registration may apply.",
+        "reference_certainty": "medium"
+      },
+      {
+        "row": 4,
+        "id": "19b07f661f88071fd7e69eb9a530dc6a06c85aaf2fd957e61d7da37eb3812417",
+        "title": "Guest Service Associate - Housekeeping",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/guest-service-associate-housekeeping/job/P1-7685747-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Kochi"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Kochi"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Replace guest amenities and supplies in rooms. Replace dirty linens and terry with clean items. Make beds and fold terry. Clean bathrooms.",
+          "location_evidence": "Kochi",
+          "eligibility_evidence": "Related Work Experience: No related work experience."
+        },
+        "review_note": "Guest-room cleaning and linen replacement establish hospitality operations. Country IN supports India eligibility; no related experience is requested.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 5,
+        "id": "b8942cc90fd215472dc1041a1a6ed5000f497312c9cc5829b80144560b0987d2",
+        "title": "Laundry Associate",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/laundry-associate/job/P1-7602803-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Bengaluru"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Bengaluru"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Operate and monitor washing, dry cleaning, and drying machinery, including adding chemicals and cleaning lint traps.",
+          "location_evidence": "Bengaluru",
+          "eligibility_evidence": "Related Work Experience: No related work experience."
+        },
+        "review_note": "Hotel laundry duties establish hospitality operations. Equipment operation and cleanliness checks do not establish software testing. Country IN supports India eligibility; no related experience is requested.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 6,
+        "id": "d69b8a8929e219c6e216754e327e1d4374627a907d15f4d72c2bba8385665dc5",
+        "title": "Guest Services Associate - Front Office",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/guest-services-associate-front-office/job/P1-7474370-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Mumbai"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Mumbai"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Process all guest check-ins, check-outs, room assignments, and room change/late check-out requests.",
+          "location_evidence": "Mumbai",
+          "eligibility_evidence": "Related Work Experience: No related work experience."
+        },
+        "review_note": "Guest check-ins, billing and front-office service establish hospitality operations. Routine reports do not override that function. Country IN supports India eligibility; no related experience is requested.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 7,
+        "id": "b918425a1d15a139d4882eb4959a1eb67ee9405662183c0cbf96691a0a726e63",
+        "title": "Housekeeping - Guest Service Associate",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/housekeeping-guest-service-associate/job/P1-7655429-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Tirupati"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Tirupati"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Replace guest amenities and supplies in rooms. Replace dirty linens and terry with clean items. Make beds and fold terry. Clean bathrooms.",
+          "location_evidence": "Tirupati",
+          "eligibility_evidence": "Related Work Experience: No related work experience."
+        },
+        "review_note": "Guest-room cleaning and linen replacement establish hospitality operations. Country IN supports India eligibility; no related experience is requested.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 8,
+        "id": "4fc815a51fdb418ec7aac595f6924f966c9ad630ed2fdeb59602ac388b335e8f",
+        "title": "Spa Therapist",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/spa-therapist/job/P1-7623144-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "New Delhi"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "New Delhi"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Whether promoting Spa services or retail, scheduling reservations and confirming appointments, providing answers about services, checking in guests, or processing payments, the Spa Specialist makes transactions feel like part of the experience.",
+          "location_evidence": "New Delhi",
+          "eligibility_evidence": "Related Work Experience: No related work experience."
+        },
+        "review_note": "Despite the therapist title, the stated duties concern spa reservations, check-ins, service information and payments. These concrete duties establish hospitality operations; clinical treatment is not described. Country IN supports India eligibility; no related experience is requested.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 9,
+        "id": "69d10bd3371373590206605cd7352a0d0b1b906db44d9d3e3da3eb6d24a9f754",
+        "title": "Food & Beverage Associate",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/food-beverage-associate/job/P1-7441678-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Chennai"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Chennai"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Complete closing duties, including storing all reusable goods, breaking down goods, cleaning all equipment and areas, returning equipment to proper locations, locking refrigerators, restocking items, turning off lights, locking doors, and completing daily cleaning checklist.",
+          "location_evidence": "Chennai",
+          "eligibility_evidence": "Related Work Experience: No related work experience."
+        },
+        "review_note": "Food-service setup, restocking and cleaning establish hospitality operations. Country IN supports India eligibility; no related experience is requested.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 10,
+        "id": "b4263457094fc593d286677cab544c83fbbf28a774082c7038194da34ab075bd",
+        "title": "Product Management Intern",
+        "company": "Rubrik",
+        "source_url": "https://www.rubrik.com/company/careers/departments/job.8345283?gh_jid=8345283",
+        "reference": {
+          "role": "Product and Design",
+          "cities": [
+            "Bengaluru"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Product and Design",
+          "cities": [
+            "Bengaluru"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Define the scope, user workflows, and success metrics for a targeted identity protection/recovery feature.",
+          "location_evidence": "Location: Based in or willing to relocate to Bengaluru for the 2-month internship duration (Hybrid model).",
+          "eligibility_evidence": "We are looking for a strategically sharp, technical, and execution-minded Product Management Intern for a high-impact 2-month internship based in Bengaluru."
+        },
+        "review_note": "Product requirements, feature strategy and roadmap ownership are primary. The role specifically requires Bengaluru relocation or residence for a hybrid internship, so it retains the city. Current enrollment in the specified management program and an engineering degree are conditions; prior experience is only a strong plus. Bengaluru is explicit India work-location evidence.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 11,
+        "id": "19c15f14cac281f750611a56a72031454da59e6a443b364cb9c074e076387b75",
+        "title": "Co-op/Apprentice (Non-Tech)",
+        "company": "Medtronic",
+        "source_url": "https://medtronic.wd1.myworkdayjobs.com/MedtronicCareers/job/Bhubaneswar-Odisha-India/Co-op-Apprentice--Non-Tech-_R81632-1",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Bhubaneswar"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Bhubaneswar"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "The majority of time is spent in the delivery of support services or activities, typically under supervision.",
+          "location_evidence": "Bhubaneswar, Odisha, India",
+          "eligibility_evidence": "0 years of experience required."
+        },
+        "review_note": "The office-support career stream and routine administrative or clerical tasks establish the dominant function. Research and reporting support those duties. Explicit India location and zero required years establish eligibility.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 12,
+        "id": "eea308d7ae56cbf4011e1e51db4a0890fbe5bec94d4203fddd6359bbf6d958c0",
+        "title": "Marketing & Communication Coordinator",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/marketing-communication-coordinator/job/P1-7553436-0",
+        "reference": {
+          "role": "Sales and Marketing",
+          "cities": [
+            "Kochi"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Sales and Marketing",
+          "cities": [
+            "Kochi"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Promote awareness of brand image internally and externally. Use sales techniques that maximize revenue while maintaining existing guest loyalty to Marriott.",
+          "location_evidence": "Kochi",
+          "eligibility_evidence": "Related Work Experience: No related work experience."
+        },
+        "review_note": "Brand promotion, up-selling and sales-tour conversion are the primary duties. Country IN supports India eligibility; no related experience is requested.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 13,
+        "id": "581bc0d4025f10379a410089cc933da6fc33b08f64e9f9923739532c067acccc",
+        "title": "Finance Audit Intern",
+        "company": "HP",
+        "source_url": "https://hp.wd5.myworkdayjobs.com/ExternalCareerSite/job/Bengaluru-Karntaka-India/Finance-Audit-Intern_UNI4884-1",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Bengaluru"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Bengaluru"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Finance Audit Intern",
+          "location_evidence": "Bengaluru, Karnātaka, India",
+          "eligibility_evidence": "Finance Audit Intern Description - FY27 hiring demand intended for global university hiring"
+        },
+        "review_note": "The specific finance-audit title and Administration job field support the category, but detailed responsibilities are absent. Explicit India location and internship or university-hiring language support eligibility.",
+        "reference_certainty": "medium"
+      },
+      {
+        "row": 14,
+        "id": "b12920bc6fe802e105acdcefa660b4832b5d8b4b977c830bc70072b60e8939ab",
+        "title": "Bartender",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/bartender/job/P1-7696996-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Madikeri"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Madikeri"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Stock ice, glassware, and paper supplies. Remove soiled wares from bar top and tables.",
+          "location_evidence": "Madikeri",
+          "eligibility_evidence": "Related Work Experience: No related work experience."
+        },
+        "review_note": "Bar setup, stocking and cleaning establish hospitality operations. Country IN supports India eligibility; no related experience is requested.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 15,
+        "id": "882a17c74d09c97b0cbae40d5079022ca2459fa5a4c800ae1460fefe3504d3f9",
+        "title": "Guest Experience Expert - AYS",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/guest-experience-expert-ays/job/P1-7705926-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Gurugram"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Gurugram"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Whether processing operational needs, addressing guest requests, completing reports, or sharing the highlights of the local area, the Guest Experience Expert makes transactions feel like part of the experience.",
+          "location_evidence": "Gurgaon",
+          "eligibility_evidence": "Related Work Experience: No related work experience."
+        },
+        "review_note": "Guest service and operational support establish hospitality operations. Gurgaon normalizes to Gurugram. Country IN supports India eligibility; no related experience is requested.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 16,
+        "id": "d238be1d9f4e5a5682dea92c837e2eace0fdd03f24b34f0efd98ad0d56021c6a",
+        "title": "Bell Desk Associate",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/bell-desk-associate/job/P1-6879410-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Navi Mumbai"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Navi Mumbai"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Whether processing operational needs, addressing guest requests, completing reports, or sharing the highlights of the local area, the Guest Experience Expert makes transactions feel like part of the experience.",
+          "location_evidence": "Navi Mumbai",
+          "eligibility_evidence": "Related Work Experience: No related work experience."
+        },
+        "review_note": "Guest service and operational support establish hospitality operations. Navi Mumbai is retained as the explicitly named city. Country IN supports India eligibility; no related experience is requested.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 17,
+        "id": "2c24a65ec0b8aed1318b1abf0416806fc275aa0406ac7b4aaa84b87c52ec54f7",
+        "title": "Guest Service Associate - Housekeeping",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/guest-service-associate-housekeeping/job/P1-7148355-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Bengaluru"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Bengaluru"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Replace guest amenities and supplies in rooms. Replace dirty linens and terry with clean items. Make beds and fold terry. Clean bathrooms.",
+          "location_evidence": "Bengaluru",
+          "eligibility_evidence": "Related Work Experience: No related work experience."
+        },
+        "review_note": "Guest-room cleaning and linen replacement establish hospitality operations. Country IN supports India eligibility; no related experience is requested.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 18,
+        "id": "82b26b6720e594885afae6301c2714f19579021e1999bdedaa92b667b35b6b02",
+        "title": "Guest Service Associate - F & B Service",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/guest-service-associate-f-b-service/job/P1-7556268-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Chennai"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Chennai"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Set up, stock, and maintain work areas. Inspect the cleanliness and presentation of all china, glass, and silver prior to use.",
+          "location_evidence": "Chennai",
+          "eligibility_evidence": "Related Work Experience: No related work experience."
+        },
+        "review_note": "Food and beverage service is hospitality work. Country IN confirms India; zero related experience is explicitly accepted.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 19,
+        "id": "d6db8ae06b7aad6fdc00e9c31957b10f4d92f1cd93f364f5ebe33c7528c649b0",
+        "title": "Talent Acquisition Intern - IT Recruitment",
+        "company": "Paytm",
+        "source_url": "https://jobs.lever.co/paytm/95eadc2b-27bf-40fe-b6e6-93aaeadd08f7",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Noida"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Noida"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "A Talent Acquisition (TA) Intern will support the recruitment team in sourcing and screening candidates for technology roles.",
+          "location_evidence": "Noida, Uttar Pradesh",
+          "eligibility_evidence": "Talent Acquisition Intern - Noida"
+        },
+        "review_note": "The primary function is recruitment. Hiring for technology roles does not establish software development. Noida is explicitly the work location and the opening is an internship.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 20,
+        "id": "91ffc57a1c8995b114a6684c1e64dedd8580d8a3782321191ff786142e59ec34",
+        "title": "Customer Operations Analyst Intern",
+        "company": "Forma",
+        "source_url": "https://job-boards.greenhouse.io/formaaiinc3/jobs/4090129005",
+        "reference": {
+          "role": "Data and Analytics",
+          "cities": [
+            "Pune"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Pune"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": false,
+          "location": true,
+          "joint": false
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Create automated reporting (financial, sales performance, incentive compensation) for customers to support process automation and improve business visibility Support design projects including analysis, financial modelling, project planning, customer workshops, and presentation/recommendation of findings",
+          "location_evidence": "Pune",
+          "eligibility_evidence": "Experience in working with large datasets and a strong understanding of logical structures of databases and workflows"
+        },
+        "review_note": "Automated reporting and financial modelling support Data and Analytics; customer operations and product support create a category boundary. The internship establishes entry eligibility. Dataset experience is requested, but no prior-employment requirement or minimum duration is stated. Pune is explicit; the hybrid arrangement does not remove it.",
+        "reference_certainty": "medium"
+      },
+      {
+        "row": 21,
+        "id": "50c8e99dcad1abf182f9b3c02a4e54c0fcf672b4fe466c6b066e365b9c63b7d2",
+        "title": "Engineering Associate - Electrician",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/engineering-associate-electrician/job/P1-7553417-0",
+        "reference": {
+          "role": "Other",
+          "cities": [],
+          "location_status": "region"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [],
+          "location_status": "region"
+        },
+        "matches": {
+          "role": false,
+          "location": true,
+          "joint": false
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Fix minor plumbing problems such as unclogging drains, plunging toilets, and repairing leaky spigots and faucets. Perform miscellaneous minor repairs such as tightening loose toilet seats, changing light bulbs, and patching holes in walls.",
+          "location_evidence": "Goa",
+          "eligibility_evidence": "Related Work Experience: No related work experience."
+        },
+        "review_note": "Physical plumbing and building repairs are trade work. Goa supports a region, with no city named. Country IN confirms India and zero related experience is explicit.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 22,
+        "id": "96f06161389f42e68c10accc56ade3759b5224647cf2ddc6be3cfe7d055c4230",
+        "title": "Talent Acquisition Intern",
+        "company": "Paytm",
+        "source_url": "https://jobs.lever.co/paytm/6d7551f7-34c3-46a2-a4e4-18b29f15338c",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Noida"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Noida"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "A Talent Acquisition (TA) Intern will support the recruitment team in sourcing and screening candidates for technology roles.",
+          "location_evidence": "Noida, Uttar Pradesh",
+          "eligibility_evidence": "A Talent Acquisition (TA) Intern will support the recruitment team in sourcing and screening candidates for technology roles."
+        },
+        "review_note": "Recruitment and interview coordination establish the people-operations function. The source explicitly gives Noida as the work location and identifies an internship.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 23,
+        "id": "287339c985bbc67c978842373c966b6a231d8ca9f0073c0dc1e3c451f6b5d398",
+        "title": "Loss Prevention Guard",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/loss-prevention-guard/job/P1-7412189-0",
+        "reference": {
+          "role": "Other",
+          "cities": [],
+          "location_status": "region"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [],
+          "location_status": "region"
+        },
+        "matches": {
+          "role": false,
+          "location": true,
+          "joint": false
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Patrol all areas of the property; assist guests with room access. Monitor Closed Circuit Televisions, perimeter alarm system, duress alarms, and fire life safety system. Lock property entrances when required. Conduct daily physical hazard inspections.",
+          "location_evidence": "Goa",
+          "eligibility_evidence": "Related Work Experience: No related work experience."
+        },
+        "review_note": "The dominant function is physical guarding and emergency response, outside computer security. Guest assistance is secondary. Goa is region-only and country IN confirms India. No related work experience is accepted, although the source mentions possible state licensing or registration requirements without identifying a specific requirement. The broad hospitality boundary also makes Business and Operations plausible; the functional classification is retained consistently across physical-security posts.",
+        "reference_certainty": "medium"
+      },
+      {
+        "row": 24,
+        "id": "2b59c2db291ff60e34dd8bb2e8269c3642b1826297bf4105e9965b33a4a44020",
+        "title": "Front Office Associate - At Your Service",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/front-office-associate-at-your-service/job/P1-6649884-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Mumbai"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Mumbai"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Answer, record, and process all guest requests, questions, or concerns via telephone, email, chat, and mobile communication devices.",
+          "location_evidence": "Mumbai",
+          "eligibility_evidence": "Related Work Experience: No related work experience."
+        },
+        "review_note": "Guest communications and hotel service coordination establish hospitality support. Country IN confirms India and zero related experience is explicit.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 25,
+        "id": "19a087fb616da5c095ba0b70475c7bf233beaa6b599a6f69331487ab5366b133",
+        "title": "Barista",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/barista/job/P1-7086919-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Hyderabad"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Hyderabad"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Take orders, record in MICROS system and prepare food and coffee beverages.",
+          "location_evidence": "Hyderabad",
+          "eligibility_evidence": "Related Work Experience: No related work experience."
+        },
+        "review_note": "Preparing beverages and serving customers are hospitality duties. Country IN confirms India and zero related experience is explicit.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 26,
+        "id": "e4cefd96822e888be9185280974bbb1f7f3812ee0d83963d966c5c61915bc32c",
+        "title": "Front Office Associate",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/front-office-associate/job/P1-7562982-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Bengaluru"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Bengaluru"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "assisting guests with loading/unloading vehicles and transporting luggage to and from guest rooms and/or designated bell area",
+          "location_evidence": "Bengaluru",
+          "eligibility_evidence": "Related Work Experience: No related work experience."
+        },
+        "review_note": "Guest requests, hotel operations and luggage assistance establish hospitality work. Country IN confirms India and zero related experience is explicit.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 27,
+        "id": "919cf62077bf81260e443a0110a9040d30b2e1d6af1c6e70f8d80909cd08b0d2",
+        "title": "Guest Experience Expert (FO Associate)",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/guest-experience-expert-fo-associate/job/P1-7441667-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Ahmedabad"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Ahmedabad"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Whether processing operational needs, addressing guest requests, completing reports, or sharing the highlights of the local area, the Guest Experience Expert makes transactions feel like part of the experience.",
+          "location_evidence": "Ahmedabad",
+          "eligibility_evidence": "Related Work Experience: No related work experience."
+        },
+        "review_note": "The primary work is guest service and hotel operations; routine reports do not establish an analytics role. Country IN confirms India and zero related experience is explicit.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 28,
+        "id": "dad8ca23df2d9464be5ad24a8e9570cbaadfd5a126b09d2d3a59bc380a5cf8c1",
+        "title": "Front Office Associate",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/front-office-associate/job/P1-7461202-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Navi Mumbai"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Navi Mumbai"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Process all guest check-ins, check-outs, room assignments, and room change/late check-out requests.",
+          "location_evidence": "Navi Mumbai",
+          "eligibility_evidence": "Related Work Experience: No related work experience."
+        },
+        "review_note": "Hotel front-desk operations are the primary function. Preserve the explicitly listed city Navi Mumbai. Country IN confirms India and zero related experience is explicit.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 29,
+        "id": "b425679c27fcc91ec27a2b1c136d2cd3ea2e5e263a4ca1c041b9b53d2bd25379",
+        "title": "Laundry Associate",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/laundry-associate/job/P1-7625194-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Ahmedabad"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Ahmedabad"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Operate and monitor washing, dry cleaning, and drying machinery, including adding chemicals and cleaning lint traps.",
+          "location_evidence": "Ahmedabad",
+          "eligibility_evidence": "Related Work Experience: No related work experience."
+        },
+        "review_note": "Hotel laundry is a routine hospitality operation; physical inspection and machine operation support that function. Country IN confirms India and zero related experience is explicit.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 30,
+        "id": "6d4f1c2bb93c6f4895905720ee62ec44c60669560f28135602ca45185da9c7c5",
+        "title": "Reservation Associate",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/reservation-associate/job/P1-7647441-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Nashik"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Nashik"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Process all reservation requests, changes, and cancellations received by phone, fax, or mail. Identify guest reservation needs and determine appropriate room type.",
+          "location_evidence": "Nashik",
+          "eligibility_evidence": "Related Work Experience: No related work experience."
+        },
+        "review_note": "Reservation handling and guest support dominate; sales techniques are incidental to booking operations. Country IN confirms India and zero related experience is explicit.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 31,
+        "id": "2dd1ed2e540676253874d04fcf19d60b13d4fa0b92fa3f4122bc4ff90e03bde5",
+        "title": "KST Associate",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/kst-associate/job/P1-7702885-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Ahmedabad"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Ahmedabad"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "These associates may work across departments (e.g., kitchen, food and beverage, employee dining room) to support cleaning and basic kitchen preparation needs.",
+          "location_evidence": "Ahmedabad",
+          "eligibility_evidence": "Related Work Experience: No related work experience."
+        },
+        "review_note": "Kitchen cleaning and preparation support establish hospitality operations despite the abbreviated title. Country IN confirms India and zero related experience is explicit.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 32,
+        "id": "530d54da41e08fb38e8064325a97400513e4bef62ae5ec2694cd950ea071fcbb",
+        "title": "Reservations Associate-At Your Service-Courtyard by Marriott Vitthalapur",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/reservations-associate-at-your-service-courtyard-by-marriott-vitthalapur/job/P1-7075951-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Vitthalapur"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Vitthalapur"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Answer, record, and process all guest requests, questions, or concerns via telephone, email, chat, and mobile communication devices.",
+          "location_evidence": "Vitthalapur",
+          "eligibility_evidence": "Related Work Experience: No related work experience."
+        },
+        "review_note": "Guest service communications are the primary function. Vitthalapur is supported by the original location field independently of the property name. Country IN confirms India and zero related experience is explicit.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 33,
+        "id": "7a48fe826b0f64f6979c03690f8462373c46d90b09215a44e61b5988e0d5ef1e",
+        "title": "Housekeeping Associate",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/housekeeping-associate/job/P1-7454261-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Bengaluru"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Bengaluru"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Replace guest amenities and supplies in rooms. Replace dirty linens and terry with clean items. Make beds and fold terry. Clean bathrooms.",
+          "location_evidence": "Bengaluru",
+          "eligibility_evidence": "Related Work Experience: No related work experience."
+        },
+        "review_note": "Hotel housekeeping is the primary function. Employer history mentioning New York is unrelated to the opening. Country IN confirms India and zero related experience is explicit.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 34,
+        "id": "36b3a82cb51b88a0223a54f22415ebcfa02dde75f94b2fbb4d2cfafa49bf293a",
+        "title": "College Intern - Technical",
+        "company": "HP",
+        "source_url": "https://hp.wd5.myworkdayjobs.com/ExternalCareerSite/job/Bengaluru-Karnataka-India/College-Intern---Technical_3169164-1",
+        "reference": {
+          "role": "Unknown",
+          "cities": [
+            "Bengaluru",
+            "Chennai",
+            "Gurugram"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Unknown",
+          "cities": [
+            "Bengaluru",
+            "Chennai",
+            "Gurugram"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "",
+          "location_evidence": "Bengaluru, Karnataka, India; Chennai, Tamil Nadu, India; Gurugram, Haryana, India",
+          "eligibility_evidence": "Education and Experience Required: Enrolled in University."
+        },
+        "review_note": "The source defines student and apprenticeship participation but supplies no concrete work duties. The Technical title and generic Administration job-family label do not resolve the actual function. All three cities are explicitly listed as work locations, with India explicit. University enrollment establishes student eligibility.",
+        "reference_certainty": "medium"
+      },
+      {
+        "row": 35,
+        "id": "ed10e6bf9effcb4f32c2748bc8ac7722b9c25c8d06ae3853393f49ee639caf96",
+        "title": "Food & Beverage Associate",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/food-beverage-associate/job/P1-7665624-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Hyderabad"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Hyderabad"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Welcome and acknowledge all guests according to company standards.",
+          "location_evidence": "Hyderabad",
+          "eligibility_evidence": "Related Work Experience: No related work experience."
+        },
+        "review_note": "Food-and-beverage service and upkeep are hospitality operations. The work city is explicit and country is IN. No positive experience requirement appears.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 36,
+        "id": "2fb0607f6e267979fa2d072bd046dc52573af57afc0c50a2f0dfbe347f411264",
+        "title": "GSA - F&B Service",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/gsa-f-b-service/job/P1-7685643-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Pune"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Pune"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Welcome and acknowledge all guests according to company standards.",
+          "location_evidence": "Pune",
+          "eligibility_evidence": "Related Work Experience: No related work experience."
+        },
+        "review_note": "Food-and-beverage service and upkeep are hospitality operations. The original work location is Pune and country is IN. Quality standards here concern service, not software testing.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 37,
+        "id": "316585796ab798deb6b2c5a62637db43014034cab5659ca156773791a0ca1fe4",
+        "title": "Reservations Coordinator",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/reservations-coordinator/job/P1-7612901-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Nashik"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Nashik"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Process all reservation requests, changes, and cancellations received by phone, fax, or mail.",
+          "location_evidence": "Nashik",
+          "eligibility_evidence": "Related Work Experience: No related work experience."
+        },
+        "review_note": "Reservation handling and guest support dominate. The instruction to follow sales techniques is incidental to the reservation workflow. Nashik and country IN are explicit.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 38,
+        "id": "e19ac8a1507d88ebdd6c52627f09b501641af7e54f4d17ce383a7b8052209e2f",
+        "title": "Guest Experience Expert",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/guest-experience-expert/job/P1-7569705-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Amritsar"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Amritsar"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Our Guest Experience Experts take the initiative to deliver a wide range of services that guide guests through their entire stay.",
+          "location_evidence": "Amritsar",
+          "eligibility_evidence": "Related Work Experience: No related work experience."
+        },
+        "review_note": "Guest support, luggage assistance and hotel operational requests establish hospitality work. Amritsar and country IN are explicit.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 39,
+        "id": "4044e5d751b8bb1068469e4db49a112cb70f4218974da810696ba5c47f92bc1b",
+        "title": "Guest Experience Expert",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/guest-experience-expert/job/P1-7652469-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Ranchi"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Ranchi"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Whether processing operational needs, addressing guest requests, completing reports, or sharing the highlights of the local area, the Guest Experience Expert makes transactions feel like part of the experience.",
+          "location_evidence": "Ranchi",
+          "eligibility_evidence": "Related Work Experience: No related work experience."
+        },
+        "review_note": "Guest service is the primary function; routine reports do not establish a data-analysis role. Ranchi and country IN are explicit.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 40,
+        "id": "9545562b2cc808d62af6fceb61e6b47b696c18b5a7583c632a82afec8289542b",
+        "title": "Creative Marketing Intern - Performance Creative",
+        "company": "Emergent Labs",
+        "source_url": "https://job-boards.greenhouse.io/emergentlabsinc/jobs/4468745009",
+        "reference": {
+          "role": "Sales and Marketing",
+          "cities": [
+            "Bengaluru"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Sales and Marketing",
+          "cities": [
+            "Bengaluru"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Ideate: brainstorm hooks, angles, and concepts for video and static ads",
+          "location_evidence": "Bangalore",
+          "eligibility_evidence": "Creative Marketing Intern - Performance Creative"
+        },
+        "review_note": "Boundary case: about half the work is creative operations, including payments and agency coordination, and half is ad ideation and experiments. Both support performance marketing, so Sales and Marketing is the best fit; Business and Operations is a plausible alternative under a narrower interpretation. Experience is only nice to have. Bangalore is the stated Indian work location; flexible hours do not establish remote status.",
+        "reference_certainty": "medium"
+      },
+      {
+        "row": 41,
+        "id": "d4fd1a039aade3b5f7e23fe68c99f072039f7315b8ba1745826f3f944492b226",
+        "title": "Kitchen Stewarding Associate",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/kitchen-stewarding-associate/job/P1-7646301-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "New Delhi"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "New Delhi"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Wash and disinfect kitchen and store room areas, tables, tools, knives, and equipment.",
+          "location_evidence": "New Delhi",
+          "eligibility_evidence": "Related Work Experience: No related work experience."
+        },
+        "review_note": "Kitchen cleaning, dishwashing and stock handling are hotel service operations. Equipment use does not establish engineering. Preserve New Delhi as distinct from Delhi. Country IN is explicit.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 42,
+        "id": "d9467458c883737e035bb2504df09314810fe3e93993375df00d276c92f9d803",
+        "title": "Food & Beverage Hostess",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/food-beverage-hostess/job/P1-6653001-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Hyderabad"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Hyderabad"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Greet guests and determine the number in their party.",
+          "location_evidence": "Hyderabad",
+          "eligibility_evidence": "Related Work Experience: No related work experience."
+        },
+        "review_note": "Dining-room seating and guest assistance establish hospitality operations. Hyderabad and country IN are explicit.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 43,
+        "id": "27e7fd6f8f61ab812c9f8e76f769e61ed889416454731f5fccc5c6889d1bc723",
+        "title": "ENG Project/ Program - Intern",
+        "company": "Rubrik",
+        "source_url": "https://www.rubrik.com/company/careers/departments/job.8166514?gh_jid=8166514",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Bengaluru"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Bengaluru"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Develop & maintain project plans, schedules & documentation",
+          "location_evidence": "Bangalore",
+          "eligibility_evidence": "We are looking for a highly organised and motivated Project/ Program Manager Intern to join our dynamic team."
+        },
+        "review_note": "Boundary case: program delivery, schedules, stakeholder coordination and risk tracking dominate; the text does not assign coding or product discovery and design duties. Business and Operations is the best fit, with Product and Design a plausible alternative if program management is grouped with product management. Explicit onsite Bangalore internship. Eligibility is restricted to 2027 circuital graduates with CGPA 8 or above and availability January to May 2027; it is not open to every fresher.",
+        "reference_certainty": "medium"
+      },
+      {
+        "row": 44,
+        "id": "aaa8b6834475a87d7aa9de0ad0127c4df78e4841274a0932297d3e20ee714164",
+        "title": "Loss Prevention Associate",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/loss-prevention-associate/job/P1-7439342-0",
+        "reference": {
+          "role": "Other",
+          "cities": [
+            "Chennai"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Chennai"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": false,
+          "location": true,
+          "joint": false
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Patrol all areas of the property; assist guests with room access. Monitor Closed Circuit Televisions, perimeter alarm system, duress alarms, and fire life safety system.",
+          "location_evidence": "Chennai",
+          "eligibility_evidence": "Related Work Experience: No related work experience."
+        },
+        "review_note": "Boundary case: the principal work is physical guarding, emergency response and incident investigation, outside computer security. Other is the best functional fit; Business and Operations remains plausible because the policy broadly includes hospitality. The listing states no related experience but notes possible state licensing or registration requirements. Chennai and country IN are explicit.",
+        "reference_certainty": "medium"
+      },
+      {
+        "row": 45,
+        "id": "3c720637eca1e177c7eeef2b3358dc03f9d4cd8782ff941b0f8b3cb77f6bd969",
+        "title": "Guest Service Associate - Front Office",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/guest-service-associate-front-office/job/P1-7602862-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Chennai"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Chennai"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Our Guest Experience Experts take the initiative to deliver a wide range of services that guide guests through their entire stay.",
+          "location_evidence": "Chennai",
+          "eligibility_evidence": "Related Work Experience: No related work experience."
+        },
+        "review_note": "Guest requests, hotel operations and luggage assistance establish hospitality service. Chennai and country IN are explicit.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 46,
+        "id": "e06cf94b80359694408e499a39b965a1fddba7dd95f1488bb49fa7bccdef8485",
+        "title": "Purchase Associate -Receiving Area-Courtyard by Marriott Vitthalapur",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/purchase-associate-receiving-area-courtyard-by-marriott-vitthalapur/job/P1-7075905-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Vitthalapur"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Vitthalapur"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Receive, unload, and process deliveries and account for incoming freight based on invoice and receiving reports.",
+          "location_evidence": "Vitthalapur",
+          "eligibility_evidence": "Related Work Experience: No related work experience."
+        },
+        "review_note": "Receiving, inventory and delivery duties establish logistics operations. Vitthalapur is explicitly provided as the work location, so it is retained without inferring a different city from the property name. Country IN is explicit.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 47,
+        "id": "cb41184bbe561d64310a80760238088696835ad2756692355abd5199ff6a5c34",
+        "title": "Guest Service Associate-Food & Beverage Service",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/guest-service-associate-food-beverage-service/job/P1-7698079-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Kochi"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Kochi"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Welcome and acknowledge all guests according to company standards.",
+          "location_evidence": "Kochi",
+          "eligibility_evidence": "Related Work Experience: No related work experience."
+        },
+        "review_note": "Food-and-beverage service and preparation of service areas are hospitality operations. Kochi and country IN are explicit.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 48,
+        "id": "e540d698b2991b5a8bfec7a4bcf04925c16bd3caa0e89865a4ad6279dd6dcf3c",
+        "title": "Intern- HR Onboarding",
+        "company": "Paytm",
+        "source_url": "https://jobs.lever.co/paytm/0ecd9d93-e4f3-4dd0-a22e-852fec9b6e02",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Noida"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Noida"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Ensure completion of joining formalities, forms, and policy acknowledgments.",
+          "location_evidence": "Noida, Uttar Pradesh",
+          "eligibility_evidence": "Job Title: HR Onboarding Intern Positions (MBA / Graduate)"
+        },
+        "review_note": "Employee onboarding, records and orientation establish people operations. The posting explicitly names Noida, Uttar Pradesh, and office attendance. The internship is three months and asks for basic skills without mandatory prior experience.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 49,
+        "id": "e84fd5104f01185a09013630b3b7b2ce275c0d8cb8f940428f6a99be2a2d6ac6",
+        "title": "Guest Service Associate-F&B Service",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/guest-service-associate-f-b-service/job/P1-7686841-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Kochi"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Kochi"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Welcome and acknowledge all guests according to company standards.",
+          "location_evidence": "Kochi",
+          "eligibility_evidence": "Related Work Experience: No related work experience."
+        },
+        "review_note": "Food-and-beverage service and upkeep are hospitality operations. Kochi and country IN are explicit; no conflicting experience requirement appears.",
+        "reference_certainty": "high"
+      },
+      {
+        "row": 50,
+        "id": "5264b6d03ce3e4c42be9e71d7c12e98cab14a9c08c35338ac6c09f9812fbb149",
+        "title": "Guest Services Associate - Front Office",
+        "company": "Marriott International",
+        "source_url": "https://careers.marriott.com/guest-services-associate-front-office/job/P1-7686778-0",
+        "reference": {
+          "role": "Business and Operations",
+          "cities": [
+            "Pune"
+          ],
+          "location_status": "city"
+        },
+        "prediction": {
+          "role": "Business and Operations",
+          "cities": [
+            "Pune"
+          ],
+          "location_status": "city"
+        },
+        "matches": {
+          "role": true,
+          "location": true,
+          "joint": true
+        },
+        "eligibility": {
+          "india": "yes",
+          "fresher": "yes"
+        },
+        "evidence": {
+          "role_evidence": "Process all guest check-ins, check-outs, room assignments, and room change/late check-out requests.",
+          "location_evidence": "Pune",
+          "eligibility_evidence": "Related Work Experience: No related work experience."
+        },
+        "review_note": "Front-office guest service, room administration and billing dominate. Daily reports and payment handling remain part of hotel operations. Pune and country IN are explicit.",
+        "reference_certainty": "high"
+      }
+    ],
+    "completed_at": "2026-11-19T18:33:15.492497+00:00",
+    "reference_locked_at": "2026-11-19T18:32:39.982984+00:00",
+    "uncertain_rows": [
+      3,
+      13,
+      20,
+      23,
+      34,
+      40,
+      43,
+      44
+    ]
+  },
+  "cost": {
+    "version": "role-city-v4",
+    "snapshot_at": "2026-11-19T10:50:42.083202793Z",
+    "currency": "USD",
+    "total_usd": "0.2088703",
+    "attempts": 241,
+    "accepted": 225,
+    "rejected": 16,
+    "unknown_cost_attempts": 0,
+    "published_denominator": 236,
+    "attempted_versions_denominator": 225,
+    "recorded_per_1000_published_usd": "0.88504364",
+    "recorded_per_1000_attempted_versions_usd": "0.92831244",
+    "billing_reconciled": false,
+    "includes": [
+      "Recorded v4 attempts",
+      "Rejected outputs",
+      "Retries"
+    ],
+    "excludes": [
+      "Hosting",
+      "Database",
+      "Later maintenance and review runs"
+    ],
+    "basis": "Token usage priced from recorded v4 attempts; usage estimates have not been reconciled to a paid bill.",
+    "usage_cost_decimal_places": 7,
+    "usage_records": [
+      {
+        "group": 1,
+        "outcome": "rejected",
+        "attempts": 4,
+        "cost_usd": "0.0039737",
+        "unknown_cost_attempts": 0,
+        "input_tokens": 9654,
+        "output_tokens": 431
+      },
+      {
+        "group": 2,
+        "outcome": "accepted",
+        "attempts": 221,
+        "cost_usd": "0.1890751",
+        "unknown_cost_attempts": 0,
+        "input_tokens": 463117,
+        "output_tokens": 20056
+      },
+      {
+        "group": 3,
+        "outcome": "rejected",
+        "attempts": 5,
+        "cost_usd": "0.0050836",
+        "unknown_cost_attempts": 0,
+        "input_tokens": 12662,
+        "output_tokens": 514
+      },
+      {
+        "group": 4,
+        "outcome": "accepted",
+        "attempts": 2,
+        "cost_usd": "0.0019166",
+        "unknown_cost_attempts": 0,
+        "input_tokens": 5097,
+        "output_tokens": 155
+      },
+      {
+        "group": 5,
+        "outcome": "rejected",
+        "attempts": 3,
+        "cost_usd": "0.0030017",
+        "unknown_cost_attempts": 0,
+        "input_tokens": 7414,
+        "output_tokens": 311
+      },
+      {
+        "group": 6,
+        "outcome": "rejected",
+        "attempts": 3,
+        "cost_usd": "0.0029067",
+        "unknown_cost_attempts": 0,
+        "input_tokens": 7414,
+        "output_tokens": 273
+      },
+      {
+        "group": 7,
+        "outcome": "accepted",
+        "attempts": 1,
+        "cost_usd": "0.0009545",
+        "unknown_cost_attempts": 0,
+        "input_tokens": 2240,
+        "output_tokens": 113
+      },
+      {
+        "group": 8,
+        "outcome": "rejected",
+        "attempts": 1,
+        "cost_usd": "0.0010012",
+        "unknown_cost_attempts": 0,
+        "input_tokens": 2529,
+        "output_tokens": 97
+      },
+      {
+        "group": 9,
+        "outcome": "accepted",
+        "attempts": 1,
+        "cost_usd": "0.0009572",
+        "unknown_cost_attempts": 0,
+        "input_tokens": 2624,
+        "output_tokens": 68
+      }
+    ]
+  },
+  "provenance": {
+    "current_method": "Full frozen source text reviewed; reference labels and policy decisions locked before stored predictions were opened.",
+    "historical_method": "Preserved historical source comparison; its sample and reference judgments are unchanged.",
+    "input_records": [
+      {
+        "name": "v4-source-review-result.json",
+        "sha256": "2a90561318c2364751b9f7ff28f44ecad7bde35415ec77cf34b7372dab7d8ef2"
+      },
+      {
+        "name": "source-review-comparison.json",
+        "sha256": "daf8e6aee004cb80d1e5df6b0141985284690b9de82846833fb59cd4fff136ba"
+      },
+      {
+        "name": "production-v4-verification.json",
+        "sha256": "0543708f7c2af5d0dae47e22b4ea7967fb891cb200cef65dc857a60c8790a3b9"
+      },
+      {
+        "name": "audit-v4/source-review-reference.json",
+        "sha256": "bc5aa583fba87030c3407c36a9d97c595bd7c05afe1e6cfd9b9c5ab3c299a798"
+      }
+    ],
+    "reference_sha256": "bc5aa583fba87030c3407c36a9d97c595bd7c05afe1e6cfd9b9c5ab3c299a798",
+    "prediction_sha256": "000aa1391277880605469e6b5a89a882b25fb584b17a3ad2b075db42ce45d575",
+    "policy_sha256": "e9c51e2087a2e0b4a6c66d791fb5536824c5922ab88e55e830263d7f489602bc"
+  }
+}

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Header, Footer } from "@/components/site-shell";
+import { themeBootstrapScript } from "@/lib/theme";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -8,5 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en-IN"><body><a href="#main-content" className="skip-link">Skip to content</a><Header />{children}<Footer /></body></html>;
+  return <html lang="en-IN" data-scroll-behavior="smooth" suppressHydrationWarning><head><script id="theme-preference" dangerouslySetInnerHTML={{ __html: themeBootstrapScript }} /></head><body><a href="#main-content" className="skip-link">Skip to content</a><Header />{children}<Footer /></body></html>;
 }

@@ -3,13 +3,14 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Icon } from "./icons";
+import { ThemeControl } from "./theme-control";
 
 export function Header() {
   const pathname = usePathname();
   return <header className="site-header"><div className="header-inner">
     <Link href="/" className="wordmark" aria-label="I Blew a Job Up home"><span className="brand-mark"><Icon name="arrow" size={22} /></span><span className="brand-name">I Blew a Job Up<span className="brand-dot">.</span></span></Link>
     <nav aria-label="Main navigation"><Link href="/" className={pathname === "/" ? "nav-link active" : "nav-link"}>Find a role</Link><Link href="/sources" className={pathname === "/sources" ? "nav-link active" : "nav-link"}>Sources & method</Link></nav>
-    <span className="header-location"><span className="status-dot" />Built for your first step</span>
+    <div className="header-actions"><span className="header-location"><span className="status-dot" />Built for your first step</span><ThemeControl /></div>
   </div></header>;
 }
 
