@@ -8,15 +8,17 @@ Live tool: https://i-blew-a-job-up-ashen.vercel.app
 
 ## Status
 
-The live tool publishes 221 unique, current India fresher and internship posts with validated role and city tags. The database deployment uses a dedicated Neon Free Postgres database. Public API verification on November 18, 2026, 10:25:42 PM IST passed pagination, count consistency, filters, CSV export, and refresh authorization.
+The verified production export on November 19, 2026, at 12:39:58 PM IST contains 240 unique India fresher and internship posts across 22 employers and 23 configured sources. All sources completed their latest refresh successfully. Role and city tags use prompt v3 and pass output validation. The app stores observations, tags and refresh history in a dedicated Neon Free Postgres database.
 
-An actual scheduled refresh on November 19, 2026 completed at 6:26:14 AM IST. The hosting request record identifies `vercel-cron/1.0`, returned HTTP 200, and matches persisted run `1a6b7b55b3f9eb1d09c45b58`: 221 published posts, 221 cached results, zero errors, and zero model cost. The 50-row human review, applicant video, and forms remain pending. The assignment is not ready for submission.
+Refresh `e653bbe91819fb3e0f5eb4e6` completed on November 19 at 12:39:14 PM IST with 240 eligible and published posts, 240 cached results, zero errors and zero additional model cost. The two physical hardware internships previously assigned software roles now have the `Other` tag. Eligibility checks also reject explicit fresher exclusions and experience requirements with domain qualifiers.
 
-First-load tagging list-price spend is $0.1104267: $0.52584143 per 1,000 distinct attempted versions, or $0.49966833 per 1,000 published posts. These figures include failed attempts and retries in the selected first-load runs, exclude v1 development, and are not reconciled cash charges. See [EVALUATION.md](EVALUATION.md) for reproducible accounting and audit commands.
+An actual scheduled refresh completed on November 19 at 6:26:14 AM IST on the earlier deployment. The hosting request record identifies `vercel-cron/1.0`, returned HTTP 200, and matches persisted run `1a6b7b55b3f9eb1d09c45b58`. That historical run published 221 posts with 221 cached results, zero errors and zero model cost. The current v3 deployment has passed a manual refresh and cache verification; its next scheduled invocation remains to be observed.
 
-The frozen dataset represents 11 employers. Marriott International contributes 186 of 221 posts (84.2%), so the later accuracy result must disclose that concentration. 17 posts have known expiry before the submission deadline, and 113 have no supplied expiry. Recheck freshness on submission day.
+The v3 revision used $0.1345335 of recorded list-price tagging: $0.58748253 per 1,000 attempted versions, or $0.56055625 per 1,000 posts in the final 240-post snapshot. This includes all three rejected outputs and their retries. Billing and hosting are separate. The interface's initial-collection cost remains the historical v2 result, $0.49966833 per 1,000 posts in its 221-post cohort. See [EVALUATION.md](EVALUATION.md) for accounting methods, provenance and audit commands.
 
-The blind 50-post sample excludes 28 pilot and diagnostic IDs. No human accuracy result is claimed. See [SETUP.md](SETUP.md) for the tested runtime configuration.
+Marriott International contributes 186 of the current 240 posts (77.5%). This concentration must accompany any evaluation result. Seventeen posts have a known expiry before November 22 at 11:59 PM IST, and 132 have no supplied expiry. Recheck availability before submission.
+
+Independent source checks of 50 posts matched 50 roles and 47 exact locations. Three location disagreements remain documented for human review. The requested human review, applicant video and forms remain pending; no human accuracy result is claimed. The assignment is not ready for submission. See [SETUP.md](SETUP.md) for the verified runtime configuration.
 
 ## Structure
 

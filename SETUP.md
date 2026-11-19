@@ -52,12 +52,12 @@ MODEL_OUTPUT_USD_PER_MILLION=2.50
 MODEL_CACHED_INPUT_USD_PER_MILLION=0.03
 MODEL_MIN_INTERVAL_MS=500
 TAG_CONCURRENCY=4
-MAX_TAG_POSTS=200
+MAX_TAG_POSTS=500
 ```
 
 Set `MODEL_API_KEY` as a Production Secret in the hosting project's environment-variable form or through a private local environment file. Never put it in a URL, browser configuration, source file, or command argument. The adapter sends it in the `x-goog-api-key` header. Restart or redeploy after changing environment values.
 
-The native request uses JSON schema output, minimal thinking, and a 2048-token output cap. It accepts only complete responses and validates source evidence before caching tags. The adapter omits the deprecated temperature setting. See the [model configuration notes](https://aistudio.google.com/docs/whats-new-gemini-3.6) and [structured output documentation](https://aistudio.google.com/docs/structured-output).
+The native request uses prompt v3, JSON schema output, minimal thinking, and a 2048-token output cap. It accepts only complete responses and validates source evidence before caching tags. Prompt changes produce new cache keys. The adapter omits the deprecated temperature setting. See the [model configuration notes](https://aistudio.google.com/docs/whats-new-gemini-3.6) and [structured output documentation](https://aistudio.google.com/docs/structured-output).
 
 Set `MODEL_MIN_INTERVAL_MS` from the project's actual request quota, allowing headroom for retries and other consumers. For a new provider project, begin with a smaller pilot limit, check run records and quotas, and then raise the limit within the hosting timeout. Quotas apply per project, including other applications using the same project. Local pacing covers this process; it is not a project-wide limiter. Retryable responses honor `Retry-After` and Gemini retry-delay metadata. See the [quota documentation](https://aistudio.google.com/docs/rate-limits).
 
@@ -65,9 +65,15 @@ This project's tier and the rates above were verified before the v2 first load. 
 
 ### Verified hosted configuration
 
-Vercel project `i-blew-a-job-up` belongs to `ayash-beras-projects`; the CLI account is `ayash-bera`. Deployment `dpl_DawXdHkmoL2Dt3QN6R5EvG7woPZi` serves https://i-blew-a-job-up-ashen.vercel.app. A dedicated Neon Free database in `iad1` provides the pooled application URL and a separate direct migration URL. Credentials remain Production Secrets.
+Vercel project `i-blew-a-job-up` belongs to `ayash-beras-projects`; the CLI account is `ayash-bera`. Production deployment `dpl_FCgkhi6FzhcAZa1YxpJSNumaSm7v` uses application revision `f28e88d` and serves https://i-blew-a-job-up-ashen.vercel.app. Its deployment URL is https://i-blew-a-job-dd3io4xa6-ayash-beras-projects.vercel.app. A dedicated Neon Free database in `iad1` provides the pooled application URL and a separate direct migration URL. Credentials remain Production Secrets.
 
-On November 18, 2026, 10:25:42 PM IST, the public API exposed 221 validated tagged posts. A repeated authenticated refresh completed with 221 cache hits, zero provider attempts, and zero errors. The deployed cron target and daily definition match this deployment. Actual scheduled-run evidence and the human review remain pending.
+The production export on November 19, 2026, at 12:39:58 PM IST contains 240 published posts across 22 employers and 23 sources. All 23 sources report success. Prompt v3 separates physical hardware work from software roles, and stricter eligibility checks reject explicit fresher exclusions. Eleven additional feeds provide 19 eligible posts beyond the earlier source set.
+
+Authenticated refresh `e653bbe91819fb3e0f5eb4e6` finished on November 19 at 12:39:14 PM IST with 240 eligible posts, 240 published posts, 240 cache hits, zero errors and zero additional model cost. The configured new-version limit is 500 per run, with four workers, 500 ms request pacing and a 240-second refresh timeout.
+
+Scheduled refresh `1a6b7b55b3f9eb1d09c45b58` finished on November 19 at 6:26:14 AM IST on the earlier deployment `dpl_DawXdHkmoL2Dt3QN6R5EvG7woPZi`. Its hosting request log records `vercel-cron/1.0` and HTTP 200. That run returned 221 published posts, 221 cache hits, zero errors and zero model cost. The current v3 deployment has passed manual refresh verification; its scheduled execution is still awaiting observation. Preserve both records so the earlier scheduler evidence is not attributed to the current version.
+
+Independent source checks cover 50 posts. Human reference labels and sign-off remain pending, so no human tagging accuracy is claimed. See [EVALUATION.md](EVALUATION.md) for the review and cost workflow. Historical v2 cost figures describe the earlier 221-post cohort and exclude subsequent v3 tagging.
 
 ## Frontend
 

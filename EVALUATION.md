@@ -2,6 +2,18 @@
 
 No accuracy result exists until a human completes the reference labels. Automated inspection is not the requested hand-check.
 
+## Current revision evidence
+
+The November 19, 2026, 12:39:58 PM IST export contains 240 posts tagged with `role-city-v3`. A separate 50-post source review was selected with seed `firstrole-v3-2026-11-19`, excluding the original 28 development IDs and the two hardware diagnostic IDs. The remaining sampling population was 210 posts. Reference labels were locked before comparison with the new predictions; the original v2 sample remains unchanged.
+
+The independent source review matched 50 of 50 roles and 47 of 50 exact city-set plus location-status labels. Joint agreement was 47 of 50 (94%; Wilson 95% interval 83.78% to 97.94%). This is an automated source-review result, not human tagging accuracy. All 50 reviews used preserved original listing evidence; two also checked the original page. The sample contains 42 Marriott posts (84%), compared with 186 of 240 posts (77.5%) in the dataset.
+
+The three location disagreements remain visible: a combined Sohna-Gurgaon address, an optional Jaipur office for a remote internship, and a remote sales role tagged as region-only. Do not edit reference labels to match predictions or tune this version on the evaluation sample. Human reference labels and reviewer signatures remain empty. The scorer correctly refuses the unfinished sheet.
+
+The v3 revision made 232 provider requests across 229 distinct attempted versions: 229 succeeded and three were rejected for missing verbatim role evidence. Retries recovered all three. Recorded list-price tagging cost was $0.1345335, including rejections and retries: $0.58748253 per 1,000 attempted versions, or $0.56055625 per 1,000 posts in the final 240-post snapshot. Eleven posts reused identical-input results. The final repeat refresh checked 240 published posts with 240 cache hits, zero provider attempts, zero errors and zero tagging cost.
+
+These are revision costs, separate from the original v2 first load. The stored v2 cohort is preserved. The v3 published-version mapping was derived retrospectively from successful requests, exact source-input equality and matching cache entries; it was not frozen before tagging. Provider billing and credits have not been reconciled. Hosting and database costs are excluded. The interface's initial-collection metric still describes the historical v2 cohort.
+
 ## Freeze and sample
 
 Use a separate development pilot to settle the prompt and taxonomy. This project's pilot covered 24 canonical post IDs with 20 provider requests. Four additional posts were inspected while diagnosing rejected outputs. All 28 IDs are excluded through `private/pilot-ids.json`, including posts served through cache reuse. Report rejected-output counts separately from the blind accuracy result. Freeze the model identifier, prompt, schema, and taxonomy before drawing the final sample. Development examples must not enter the final 50.
@@ -12,7 +24,7 @@ Export the frozen production dataset with measured predictions. Run:
 python3 scripts/audit.py prepare --dataset dataset.json --output private/audit --seed firstrole-2026-11-18 --pilot-ids pilot-ids.json
 ```
 
-This selects 50 unique posts by deterministic hash ranking and records the sample IDs and file checksums. The destination must be empty; repeated sampling cannot silently overwrite the evaluation. Give only `human-review.csv` to the reviewer. Keep `frozen-predictions.json` separate during labelling.
+This historical v2 command selects 50 unique posts by deterministic hash ranking and records the sample IDs and file checksums. For the current v3 review, use the v3 dataset, seed `firstrole-v3-2026-11-19`, the separate 30-ID exclusion file and a new `private/audit-v3` directory. The destination must be empty; repeated sampling cannot silently overwrite the evaluation. Give only `human-review.csv` to the reviewer. Keep `frozen-predictions.json` and automated reference labels separate during labelling.
 
 The human reads the original listing and preserved source evidence, enters the reference role, semicolon-separated cities, location status, eligibility decisions, reviewer name, and an ISO timestamp with time zone. Resolve ambiguous records using the frozen rules. Do not replace difficult examples. If evidence is missing, restore it before claiming a completed review.
 
