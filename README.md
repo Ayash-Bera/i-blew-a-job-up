@@ -10,6 +10,8 @@ Live tool: https://i-blew-a-job-up-ashen.vercel.app
 
 The verified production export on November 19, 2026, at 12:39:58 PM IST contains 240 unique India fresher and internship posts across 22 employers and 23 configured sources. All sources completed their latest refresh successfully. Role and city tags use prompt v3 and pass output validation. The app stores observations, tags and refresh history in a dedicated Neon Free Postgres database.
 
+The current source contains prompt v4, with explicit role and location precedence, remote-work rules, conservative address handling and two validated examples. Backend tests, build and vet pass. Model comparison and deployment of v4 are pending; the published dataset, screenshots and measured costs below belong to v3.
+
 Refresh `e653bbe91819fb3e0f5eb4e6` completed on November 19 at 12:39:14 PM IST with 240 eligible and published posts, 240 cached results, zero errors and zero additional model cost. The two physical hardware internships previously assigned software roles now have the `Other` tag. Eligibility checks also reject explicit fresher exclusions and experience requirements with domain qualifiers.
 
 An actual scheduled refresh completed on November 19 at 6:26:14 AM IST on the earlier deployment. The hosting request record identifies `vercel-cron/1.0`, returned HTTP 200, and matches persisted run `1a6b7b55b3f9eb1d09c45b58`. That historical run published 221 posts with 221 cached results, zero errors and zero model cost. The current v3 deployment has passed a manual refresh and cache verification; its next scheduled invocation remains to be observed.
