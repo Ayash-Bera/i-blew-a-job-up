@@ -16,6 +16,8 @@ ROLES = {
 STATUSES = {"city", "region", "remote", "unspecified"}
 GOLD_FIELDS = ["gold_role", "gold_cities", "gold_location_status", "india_eligible",
                "fresher_eligible", "reviewer", "reviewed_at", "notes"]
+SOURCE_FIELDS = ["id", "title", "company", "source_url", "source_text", "last_checked_at",
+                 "original_locations", "original_country", "original_employment_type"]
 
 
 def digest(value):
@@ -46,7 +48,17 @@ def write_csv(path, rows, fields):
         writer.writerows({k: safe_cell(row.get(k, "")) for k in fields} for row in rows)
 
 
-def prepare(dataset, destination, seed, pilot_ids):
+def source_row(job):
+    return {"id": job["id"], "title": job["title"], "company": job["company"],
+            "source_url": job["source_url"],
+            "source_text": job.get("source_text", job.get("description_excerpt", "")),
+            "last_checked_at": job["last_checked_at"],
+            "original_locations": json.dumps(job.get("original_locations", []), ensure_ascii=False),
+            "original_country": job.get("original_country", ""),
+            "original_employment_type": job.get("original_employment_type", "")}
+
+
+def prepare(dataset, destination, seed, pilot_ids, strict_source=False):
     jobs = load_jobs(dataset)
     exclusions = set(json.loads(Path(pilot_ids).read_text())) if pilot_ids else set()
     population = [j for j in jobs if j["id"] not in exclusions]
@@ -54,17 +66,20 @@ def prepare(dataset, destination, seed, pilot_ids):
         raise ValueError("At least 50 non-pilot model-tagged posts are required")
     ranked = sorted(population, key=lambda j: digest((seed + ":" + j["id"]).encode()))
     selected = ranked[:50]
+    if strict_source:
+        for job in selected:
+            required = {"source_text", "original_locations", "original_country",
+                        "original_employment_type", "content_key", "prompt_version"}
+            if not required.issubset(job) or not job["source_text"].strip():
+                raise ValueError("Full source input and prediction provenance are required")
+            if job["prompt_version"] != "role-city-v4" or not job["content_key"]:
+                raise ValueError("Review predictions must have verified v4 provenance")
     destination = Path(destination)
     destination.mkdir(parents=True, exist_ok=True)
     if any(destination.iterdir()):
         raise ValueError("Audit destination must be empty to preserve frozen predictions")
-    rows = [{
-        "id": job["id"], "title": job["title"], "company": job["company"],
-        "source_url": job["source_url"], "source_text": job.get("source_text", job.get("description_excerpt", "")),
-        "last_checked_at": job["last_checked_at"],
-    } for job in selected]
-    write_csv(destination / "human-review.csv", rows,
-              ["id", "title", "company", "source_url", "source_text", "last_checked_at"] + GOLD_FIELDS)
+    rows = [source_row(job) for job in selected]
+    write_csv(destination / "human-review.csv", rows, SOURCE_FIELDS + GOLD_FIELDS)
     predictions = json.dumps(selected, indent=2, ensure_ascii=False).encode()
     (destination / "frozen-predictions.json").write_bytes(predictions)
     manifest = {
@@ -75,6 +90,9 @@ def prepare(dataset, destination, seed, pilot_ids):
         "dataset_sha256": digest(Path(dataset).read_bytes()),
         "predictions_sha256": digest(predictions), "ids": [j["id"] for j in selected],
         "human_review_complete": False,
+        "strict_source": strict_source,
+        "source_fields": SOURCE_FIELDS,
+        "exclusions_sha256": digest(Path(pilot_ids).read_bytes()) if pilot_ids else None,
     }
     (destination / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
     return manifest
@@ -104,7 +122,8 @@ def score(directory):
     if digest(raw) != manifest["predictions_sha256"]:
         raise ValueError("Frozen predictions changed after sampling")
     predictions = {j["id"]: j for j in json.loads(raw)}
-    with (directory / "human-review.csv").open(newline="", encoding="utf-8") as handle:
+    review_bytes = (directory / "human-review.csv").read_bytes()
+    with (directory / "human-review.csv").open(newline="", encoding="utf-8-sig") as handle:
         rows = list(csv.DictReader(handle))
     if len(rows) != 50 or len(predictions) != 50 or len({r["id"] for r in rows}) != 50:
         raise ValueError("Exactly 50 distinct human reviews are required")
@@ -113,6 +132,10 @@ def score(directory):
     results = []
     for row in rows:
         job = predictions[row["id"]]
+        if manifest.get("strict_source"):
+            expected = source_row(job)
+            if any(row.get(k) != safe_cell(expected[k]) for k in SOURCE_FIELDS):
+                raise ValueError(f"{row['id']}: frozen source fields changed")
         if row["gold_role"] not in ROLES or row["gold_location_status"] not in STATUSES:
             raise ValueError(f"{row['id']}: incomplete or invalid reference tags")
         if row["india_eligible"] not in {"yes", "no"} or row["fresher_eligible"] not in {"yes", "no"}:
@@ -122,6 +145,10 @@ def score(directory):
         timestamp = datetime.fromisoformat(row["reviewed_at"].replace("Z", "+00:00"))
         if timestamp.tzinfo is None:
             raise ValueError(f"{row['id']}: reviewer timestamp needs a time zone")
+        if manifest.get("strict_source") and timestamp < datetime.fromisoformat(manifest["created_at"]):
+            raise ValueError(f"{row['id']}: review predates the frozen sample")
+        if timestamp > datetime.now(timezone.utc):
+            raise ValueError(f"{row['id']}: review timestamp is in the future")
         if row["gold_location_status"] == "city" and not cities(row["gold_cities"]):
             raise ValueError(f"{row['id']}: city status requires at least one city")
         if row["gold_location_status"] != "city" and cities(row["gold_cities"]):
@@ -133,7 +160,9 @@ def score(directory):
                         "eligibility_correct": row["india_eligible"] == "yes" and row["fresher_eligible"] == "yes"})
     report = {"sample_size": 50, "results": results,
               "reviewed_at": datetime.now(timezone.utc).isoformat(),
-              "predictions_sha256": manifest["predictions_sha256"]}
+              "predictions_sha256": manifest["predictions_sha256"],
+              "completed_review_sha256": digest(review_bytes),
+              "manifest_sha256": digest((directory / "manifest.json").read_bytes())}
     for metric in ["role", "location", "joint", "eligibility"]:
         correct = sum(r[metric + "_correct"] for r in results)
         report[metric] = {"correct": correct, "accuracy": correct / 50,
@@ -150,13 +179,14 @@ def main():
     sample.add_argument("--output", required=True)
     sample.add_argument("--seed", required=True)
     sample.add_argument("--pilot-ids")
+    sample.add_argument("--strict-source", action="store_true")
     evaluate = commands.add_parser("score")
     evaluate.add_argument("--directory", required=True)
     evaluate.add_argument("--output", required=True)
     args = parser.parse_args()
     try:
         if args.command == "prepare":
-            result = prepare(args.dataset, args.output, args.seed, args.pilot_ids)
+            result = prepare(args.dataset, args.output, args.seed, args.pilot_ids, args.strict_source)
             print(f"Prepared {result['sample_size']} blind review rows; human review pending")
         else:
             result = score(args.directory)

@@ -2,6 +2,7 @@ import csv
 import json
 import tempfile
 import unittest
+from datetime import datetime, timezone
 from pathlib import Path
 from audit import cities, prepare, score, safe_cell
 
@@ -109,6 +110,44 @@ class AuditTests(unittest.TestCase):
         self.assertEqual("'=SUM(A1)", safe_cell("=SUM(A1)"))
         self.assertEqual("'  @SUM(A1)", safe_cell("  @SUM(A1)"))
         self.assertEqual("Intern", safe_cell("Intern"))
+
+    def prepare_strict(self):
+        for job in self.jobs:
+            job.update(source_text="Build software. Fresh graduates can apply.",
+                       original_locations=["Bangalore, India"], original_country="IN",
+                       original_employment_type="Intern", content_key="test-" + job["id"],
+                       prompt_version="role-city-v4")
+        self.dataset.write_text(json.dumps(self.jobs))
+        prepare(self.dataset, self.out, "strict-seed", None, strict_source=True)
+
+    def test_strict_sample_requires_full_source(self):
+        with self.assertRaisesRegex(ValueError, "Full source"):
+            prepare(self.dataset, self.out, "seed", None, strict_source=True)
+
+    def test_strict_review_checks_source_timestamp_and_bom(self):
+        self.prepare_strict()
+        self.complete_reviews()
+        with self.assertRaisesRegex(ValueError, "predates"):
+            score(self.out)
+        path = self.out / "human-review.csv"
+        with path.open(newline="") as handle:
+            reader = csv.DictReader(handle)
+            fields, rows = reader.fieldnames, list(reader)
+        for row in rows:
+            row["reviewed_at"] = datetime.now(timezone.utc).isoformat()
+        def save():
+            with path.open("w", newline="", encoding="utf-8-sig") as handle:
+                writer = csv.DictWriter(handle, fieldnames=fields)
+                writer.writeheader()
+                writer.writerows(rows)
+        save()
+        result = score(self.out)
+        self.assertEqual(result["joint"]["correct"], 49)
+        self.assertEqual(len(result["completed_review_sha256"]), 64)
+        rows[0]["original_locations"] = '["Mumbai, India"]'
+        save()
+        with self.assertRaisesRegex(ValueError, "source fields changed"):
+            score(self.out)
 
 
 if __name__ == "__main__":

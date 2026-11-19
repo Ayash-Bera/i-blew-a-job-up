@@ -17,15 +17,19 @@ func (c *Client) requestBody(content string) ([]byte, error) {
 }
 
 func (c *Client) requestBodyWithInstruction(content, instruction string) ([]byte, error) {
+	return c.requestBodyWithSchema(content, instruction, Schema())
+}
+
+func (c *Client) requestBodyWithSchema(content, instruction string, schema map[string]any) ([]byte, error) {
 	switch c.Provider {
 	case "gemini":
 		return json.Marshal(map[string]any{
 			"systemInstruction": map[string]any{"parts": []any{map[string]string{"text": instruction}}},
 			"contents":          []any{map[string]any{"role": "user", "parts": []any{map[string]string{"text": content}}}},
-			"generationConfig":  map[string]any{"responseMimeType": "application/json", "responseJsonSchema": Schema(), "maxOutputTokens": 2048, "thinkingConfig": map[string]string{"thinkingLevel": "MINIMAL"}},
+			"generationConfig":  map[string]any{"responseMimeType": "application/json", "responseJsonSchema": schema, "maxOutputTokens": 2048, "thinkingConfig": map[string]string{"thinkingLevel": "MINIMAL"}},
 		})
 	case "", "compatible":
-		return json.Marshal(map[string]any{"model": c.Model, "temperature": 0, "max_tokens": 700, "messages": []map[string]string{{"role": "system", "content": instruction}, {"role": "user", "content": content}}, "response_format": map[string]any{"type": "json_schema", "json_schema": map[string]any{"name": "job_tags", "strict": true, "schema": Schema()}}})
+		return json.Marshal(map[string]any{"model": c.Model, "temperature": 0, "max_tokens": 700, "messages": []map[string]string{{"role": "system", "content": instruction}, {"role": "user", "content": content}}, "response_format": map[string]any{"type": "json_schema", "json_schema": map[string]any{"name": "job_tags", "strict": true, "schema": schema}}})
 	default:
 		return nil, errors.New("unsupported model provider")
 	}

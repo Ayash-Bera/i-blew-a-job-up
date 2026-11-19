@@ -1,8 +1,17 @@
 package tagging
 
-const RepairPolicyVersion = "validation-repair-v1"
+const RepairPolicyVersion = "validation-repair-v2"
 
 const RepairInstruction = "\n\nVALIDATION CORRECTION\nA previous response failed validation. Re-read the original posting and return a complete replacement JSON object. All original taxonomy and evidence rules still apply. Use only the supplied source fields. Do not quote the examples or invent evidence. "
+
+func (c *Client) repairBody(content, reason string) ([]byte, error) {
+	schema := Schema()
+	if reason == "validation_internship_type" {
+		// Match the existing source-metadata invariant without modifying returned tags.
+		schema["properties"].(map[string]any)["employment_type"] = map[string]any{"type": "string", "enum": []string{"internship"}}
+	}
+	return c.requestBodyWithSchema(content, repairInstruction(reason), schema)
+}
 
 func repairInstruction(reason string) string {
 	var feedback string

@@ -103,6 +103,42 @@ func TestValidationRepairPreservesEvidenceAndUsage(t *testing.T) {
 	}
 }
 
+func TestInternshipRepairSchemaPreservesOtherConstraints(t *testing.T) {
+	for _, provider := range []string{"gemini", "compatible"} {
+		t.Run(provider, func(t *testing.T) {
+			client := Client{Provider: provider, Model: "test"}
+			schemaFrom := func(body []byte) map[string]any {
+				var value map[string]any
+				if err := json.Unmarshal(body, &value); err != nil {
+					t.Fatal(err)
+				}
+				if provider == "gemini" {
+					return value["generationConfig"].(map[string]any)["responseJsonSchema"].(map[string]any)
+				}
+				return value["response_format"].(map[string]any)["json_schema"].(map[string]any)["schema"].(map[string]any)
+			}
+			base, err := client.requestBody("unchanged original input")
+			if err != nil {
+				t.Fatal(err)
+			}
+			expected := schemaFrom(base)
+			expected["properties"].(map[string]any)["employment_type"] = map[string]any{"type": "string", "enum": []any{"internship"}}
+			repair, err := client.repairBody("unchanged original input", "validation_internship_type")
+			if err != nil || !reflect.DeepEqual(schemaFrom(repair), expected) {
+				t.Fatal("repair changed unrelated schema constraints", err)
+			}
+			other, err := client.repairBody("unchanged original input", "validation_role_evidence_absent")
+			if err != nil || !reflect.DeepEqual(schemaFrom(other), schemaFrom(base)) {
+				t.Fatal("other repairs restricted employment type", err)
+			}
+			after, err := client.requestBody("unchanged original input")
+			if err != nil || string(after) != string(base) {
+				t.Fatal("repair mutated base request", err)
+			}
+		})
+	}
+}
+
 func TestValidationRepairSharesAttemptLimit(t *testing.T) {
 	for _, httpRetry := range []bool{false, true} {
 		t.Run(map[bool]string{false: "invalid only", true: "transport then invalid"}[httpRetry], func(t *testing.T) {

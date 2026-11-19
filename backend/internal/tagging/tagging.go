@@ -222,7 +222,7 @@ func (c *Client) Tag(ctx context.Context, p models.RawPosting, runID, jobID, key
 		}
 		if usage.Status == "invalid_output" && attempt < 2 {
 			if instruction := repairInstruction(usage.FailureReason); instruction != "" {
-				body, err = c.requestBodyWithInstruction(string(content), instruction)
+				body, err = c.repairBody(string(content), usage.FailureReason)
 				if err != nil {
 					return models.Tags{}, fmt.Errorf("encode validation repair: %w", err)
 				}
