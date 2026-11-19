@@ -18,13 +18,21 @@ import (
 
 var space = regexp.MustCompile(`\s+`)
 var fresh = regexp.MustCompile(`(?i)\b(freshers?|fresh graduates?|recent graduates?|new graduates?|no (?:(?:related|prior|previous|professional|work)\s+){0,3}experience(?: (?:is )?(?:required|necessary))?|zero (?:years? (?:of )?)?experience|0\s*(?:-|to|\x{2013})\s*[0-3]\s*(?:years?|yrs?)|0\s*(?:years?|yrs?))\b`)
-var experience = regexp.MustCompile(`(?i)(\d{1,2})\s*(?:\+|(?:-|to|\x{2013})\s*\d{1,2})?\s*(?:years?|yrs?)\s*(?:(?:of|relevant|professional|prior|previous|work|industry|hands-on|related)\s+){0,4}experience`)
-var wordExperience = regexp.MustCompile(`(?i)\b(?:one|two|three|four|five|six|seven|eight|nine|ten)\s+(?:or\s+more\s+)?years?\s+(?:(?:of|relevant|professional|prior|previous|work|industry|hands-on|related)\s+){0,4}experience`)
-var monthExperience = regexp.MustCompile(`(?i)\b([1-9]\d?|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)\s*(?:\+|(?:-|to|\x{2013})\s*\d{1,2})?\s*months?\s+(?:(?:of|relevant|professional|prior|previous|work|industry|hands-on|related)\s+){0,4}experience`)
+
+const experienceSuffix = `(?:[\p{L}][\p{L}-]*\s+){0,6}experience`
+
+var experience = regexp.MustCompile(`(?i)(\d{1,2})\s*(?:\+|(?:-|to|\x{2013})\s*\d{1,2})?\s*(?:years?|yrs?)\s*` + experienceSuffix)
+var wordExperience = regexp.MustCompile(`(?i)\b(?:one|two|three|four|five|six|seven|eight|nine|ten)\s+(?:or\s+more\s+)?years?\s+` + experienceSuffix)
+var monthExperience = regexp.MustCompile(`(?i)\b([1-9]\d?|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)\s*(?:\+|(?:-|to|\x{2013})\s*\d{1,2})?\s*months?\s+` + experienceSuffix)
+var requiredAfterExperience = regexp.MustCompile(`(?i)^\s*(?:(?:is|are)\s+)?(?:required|mandatory|essential|a must)\b`)
+var requiredBeforeExperience = regexp.MustCompile(`(?i)\b(?:requires?|required|mandatory|must have|at least|minimum(?: of)?)\s*[:=-]?\s*$`)
+var optionalAfterExperience = regexp.MustCompile(`(?i)^\s*(?:(?:is|are|would be|will be)\s+)?(?:preferred|nice to have|a plus|not (?:required|mandatory|essential))\b`)
+var optionalBeforeExperience = regexp.MustCompile(`(?i)\b(?:preferred|nice to have|a plus)\s*[:=-]?\s*$`)
+var organizationExperience = regexp.MustCompile(`(?i)\b(?:we|our (?:company|organization|team|business))\s+(?:have|has|bring|brings|offer|offers)\s+(?:(?:over|more than)\s+)?$`)
 var inverseExperience = regexp.MustCompile(`(?i)\bexperience\s*[:=-]\s*(\d{1,2}|one|two|three|four|five|six|seven|eight|nine|ten)\s*(?:\+|(?:-|to|\x{2013})\s*\d{1,2})?\s*(?:years?|yrs?|months?)\b`)
 var senior = regexp.MustCompile(`(?i)\b(senior|sr\.?|principal|staff|director|head|vice president|lead|leader|manager|manger|mgr|asst\.?\s*mgr|controller|supervisor)\b`)
 var internship = regexp.MustCompile(`(?i)\b(intern|internship|apprentice|apprenticeship|graduate trainee)\b`)
-var negativeFresh = regexp.MustCompile(`(?i)\b(?:freshers?\s+(?:are\s+)?(?:not\s+(?:eligible|allowed|accepted|suitable)|need\s+not\s+apply)|(?:not\s+(?:suitable|open)\s+for|no)\s+freshers?|freshers?\s+(?:cannot|can't|must\s+not|should\s+not|do\s+not)\s+apply)\b`)
+var negativeFresh = regexp.MustCompile(`(?i)\b(?:freshers?\s+(?:(?:are|is|will|would|shall)\s+)?(?:not\s+(?:be\s+)?(?:eligible|allowed|accepted|suitable|considered|selected|hired)|need\s+not\s+apply)|(?:not\s+(?:suitable|open)\s+for|no)\s+freshers?|freshers?\s+(?:cannot|can't|must\s+not|should\s+not|do\s+not)\s+apply)\b`)
 
 var cityAliases = map[string]string{"bangalore": "Bengaluru", "bengaluru": "Bengaluru", "bombay": "Mumbai", "mumbai": "Mumbai", "gurgaon": "Gurugram", "gurugram": "Gurugram", "new delhi": "New Delhi", "delhi": "Delhi", "noida": "Noida", "hyderabad": "Hyderabad", "chennai": "Chennai", "pune": "Pune", "kolkata": "Kolkata", "ahmedabad": "Ahmedabad", "jaipur": "Jaipur", "kochi": "Kochi", "cochin": "Kochi", "coimbatore": "Coimbatore", "indore": "Indore", "chandigarh": "Chandigarh", "thiruvananthapuram": "Thiruvananthapuram", "trivandrum": "Thiruvananthapuram", "udaipur": "Udaipur", "lucknow": "Lucknow", "nagpur": "Nagpur", "surat": "Surat", "vadodara": "Vadodara", "bhubaneswar": "Bhubaneswar", "mohali": "Mohali", "mysore": "Mysuru", "mysuru": "Mysuru", "mangalore": "Mangaluru", "mangaluru": "Mangaluru", "visakhapatnam": "Visakhapatnam", "sawai madhopur": "Sawai Madhopur", "swai madhopur": "Sawai Madhopur"}
 
@@ -217,8 +225,10 @@ func optionalExperience(text string, start, end int) bool {
 	if boundary := strings.IndexAny(after, ".;!?"); boundary >= 0 {
 		after = after[:boundary]
 	}
-	clause := strings.ToLower(before + " " + after)
-	return strings.Contains(clause, "preferred") || strings.Contains(clause, "nice to have") || strings.Contains(clause, "a plus")
+	if requiredAfterExperience.MatchString(after) || requiredBeforeExperience.MatchString(before) {
+		return false
+	}
+	return optionalAfterExperience.MatchString(after) || optionalBeforeExperience.MatchString(before) || organizationExperience.MatchString(before)
 }
 
 func MirrorKey(p models.RawPosting) string {

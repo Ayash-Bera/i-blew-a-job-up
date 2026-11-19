@@ -54,7 +54,7 @@ func (c *collector) workday(ctx context.Context, source models.Source) ([]models
 	}
 	base := boardURL.Scheme + "://" + boardURL.Host + "/wday/cxs/" + url.PathEscape(source.Board) + "/" + url.PathEscape(site)
 	var initial workdayPage
-	body := map[string]any{"appliedFacets": map[string][]string{}, "limit": 20, "offset": 0, "searchText": source.Search}
+	body := map[string]any{"appliedFacets": map[string][]string{}, "limit": 20, "offset": 0, "searchText": ""}
 	if err := c.request(ctx, http.MethodPost, base+"/jobs", body, &initial); err != nil {
 		return nil, err
 	}
@@ -63,6 +63,7 @@ func (c *collector) workday(ctx context.Context, source models.Source) ([]models
 		return nil, fmt.Errorf("workday response has no explicit India location facet")
 	}
 	body["appliedFacets"] = facets
+	body["searchText"] = source.Search
 	paths := []string{}
 	seen := map[string]bool{}
 	expected, count := -1, 0
@@ -79,6 +80,9 @@ func (c *collector) workday(ctx context.Context, source models.Source) ([]models
 		if expected < 0 {
 			expected = *payload.Total
 		}
+		if payload.Total != nil && *payload.Total > 0 && *payload.Total != expected {
+			return nil, fmt.Errorf("workday result count changed during pagination")
+		}
 		for _, job := range payload.Jobs {
 			if job.Path == "" || seen[job.Path] {
 				return nil, fmt.Errorf("missing or repeated workday posting")
@@ -89,6 +93,9 @@ func (c *collector) workday(ctx context.Context, source models.Source) ([]models
 			}
 		}
 		count += len(payload.Jobs)
+		if count > expected {
+			return nil, fmt.Errorf("workday returned %d postings above initial count %d", count, expected)
+		}
 		if count >= expected {
 			finished = true
 			break
@@ -127,7 +134,7 @@ func (c *collector) workday(ctx context.Context, source models.Source) ([]models
 		post := raw(source)
 		post.PostingID, post.UnderlyingID, post.RequisitionID = info.ID, info.ID, info.ID
 		post.Title, post.Description = info.Title, plain(info.Description)
-		post.Country = "IN"
+		post.Country = info.Country.Descriptor
 		post.Locations = unique(append([]string{info.Location}, info.Additional...)...)
 		post.URL = info.URL
 		if post.URL == "" {

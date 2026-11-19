@@ -56,7 +56,9 @@ export function JobBoard({ initialFilters }: { initialFilters: Filters }) {
 
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    changeFilter("q", search.trim());
+    const query = String(new FormData(event.currentTarget).get("q") ?? "").trim();
+    setSearch(query);
+    changeFilter("q", query);
     document.getElementById("opportunities")?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
@@ -82,7 +84,7 @@ export function JobBoard({ initialFilters }: { initialFilters: Filters }) {
         <p className="hero-description">Fresher jobs and internships across India, gathered from public job listings. {snapshot ? "Preview: model tags and daily refresh are pending." : "Less searching. More possibility."}</p>
         <form className="search-form" role="search" onSubmit={submit}>
           <Icon name="search" size={22} /><label htmlFor="job-search" className="sr-only">Search job title, company, or keyword</label>
-          <input id="job-search" value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Role, company, or a fresh start..." autoComplete="off" />
+          <input id="job-search" name="q" value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Role, company, or a fresh start..." autoComplete="off" />
           <button type="submit" className="button button-orange">Find my role <Icon name="arrow" size={18} /></button>
         </form>
         <div className="hero-footnote"><span><Icon name="check" size={14} />Original source links</span><span><Icon name="check" size={14} />No account needed</span><Link href="/sources">See how it works <Icon name="arrow" size={14} /></Link></div>

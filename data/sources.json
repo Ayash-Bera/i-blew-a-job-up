@@ -94,5 +94,97 @@
     "company": "Gainsight",
     "url": "https://jobs.ashbyhq.com/gainsight",
     "enabled": true
+  },
+  {
+    "id": "greenhouse-emergentlabsinc",
+    "kind": "greenhouse",
+    "board": "emergentlabsinc",
+    "company": "Emergent Labs",
+    "url": "https://job-boards.greenhouse.io/emergentlabsinc",
+    "enabled": true
+  },
+  {
+    "id": "greenhouse-fourkites",
+    "kind": "greenhouse",
+    "board": "fourkites",
+    "company": "FourKites",
+    "url": "https://job-boards.greenhouse.io/fourkites",
+    "enabled": true
+  },
+  {
+    "id": "greenhouse-formaaiinc3",
+    "kind": "greenhouse",
+    "board": "formaaiinc3",
+    "company": "Forma",
+    "url": "https://job-boards.greenhouse.io/formaaiinc3",
+    "enabled": true
+  },
+  {
+    "id": "ashby-sarvam",
+    "kind": "ashby",
+    "board": "sarvam",
+    "company": "Sarvam",
+    "url": "https://jobs.ashbyhq.com/sarvam",
+    "enabled": true
+  },
+  {
+    "id": "ashby-composio",
+    "kind": "ashby",
+    "board": "composio",
+    "company": "Composio",
+    "url": "https://jobs.ashbyhq.com/composio",
+    "enabled": true
+  },
+  {
+    "id": "ashby-certa",
+    "kind": "ashby",
+    "board": "Certa",
+    "company": "Certa",
+    "url": "https://jobs.ashbyhq.com/Certa",
+    "enabled": true
+  },
+  {
+    "id": "smartrecruiters-qadinc",
+    "kind": "smartrecruiters",
+    "board": "QADInc",
+    "company": "QAD",
+    "url": "https://careers.smartrecruiters.com/QADInc",
+    "enabled": true
+  },
+  {
+    "id": "workday-medtronic-apprentice",
+    "kind": "workday",
+    "board": "medtronic",
+    "company": "Medtronic",
+    "url": "https://medtronic.wd1.myworkdayjobs.com/MedtronicCareers",
+    "search": "apprentice",
+    "enabled": true
+  },
+  {
+    "id": "workday-hp-intern",
+    "kind": "workday",
+    "board": "hp",
+    "company": "HP",
+    "url": "https://hp.wd5.myworkdayjobs.com/ExternalCareerSite",
+    "search": "intern",
+    "enabled": true
+  },
+  {
+    "id": "workday-adobe-intern",
+    "kind": "workday",
+    "board": "adobe",
+    "company": "Adobe",
+    "url": "https://adobe.wd5.myworkdayjobs.com/external_experienced",
+    "search": "intern",
+    "enabled": true
+  },
+  {
+    "id": "workday-motorolasolutions-intern",
+    "kind": "workday",
+    "board": "motorolasolutions",
+    "company": "Motorola Solutions",
+    "url": "https://motorolasolutions.wd5.myworkdayjobs.com/Careers",
+    "search": "intern",
+    "enabled": true
   }
 ]

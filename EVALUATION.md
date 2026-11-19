@@ -35,7 +35,7 @@ The scorer requires exactly 50 distinct reviewed IDs, validates reference tags, 
 | Product and Design | Product management, user research, visual and interaction design |
 | Sales and Marketing | Sales, business development, promotion, and marketing content |
 | Business and Operations | Support, finance, administration, people operations, hospitality, logistics, and routine business processes |
-| Other | A clear role outside the defined categories, such as clinical care or non-software trades |
+| Other | A clear role outside the defined categories, including physical hardware assembly, physical equipment quality checks, clinical care, or non-software trades |
 | Unknown | Insufficient evidence to classify the role |
 
 Only cities explicitly tied to the job belong in the city set. Normalize Bangalore to Bengaluru, Gurgaon to Gurugram, Bombay to Mumbai, Cochin to Kochi, Mysore to Mysuru, Mangalore to Mangaluru, Trivandrum to Thiruvananthapuram, and Swai Madhopur to Sawai Madhopur. Comparison ignores case and surrounding spaces, removes duplicate aliases, and preserves distinct cities, including Delhi and New Delhi. Region-only, remote, and unspecified are separate location statuses with empty city sets. Company headquarters and example client locations are not job locations.

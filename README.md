@@ -10,7 +10,7 @@ Live tool: https://i-blew-a-job-up-ashen.vercel.app
 
 The live tool publishes 221 unique, current India fresher and internship posts with validated role and city tags. The database deployment uses a dedicated Neon Free Postgres database. Public API verification on November 18, 2026, 10:25:42 PM IST passed pagination, count consistency, filters, CSV export, and refresh authorization.
 
-An authenticated repeat refresh checked all 221 posts, reused 221 cached results, made zero provider requests, and reported zero errors. The daily schedule is deployed, but an actual scheduled invocation has not yet been observed. The 50-row human review, applicant video, and forms remain pending. The assignment is not ready for submission.
+An actual scheduled refresh on November 19, 2026 completed at 6:26:14 AM IST. The hosting request record identifies `vercel-cron/1.0`, returned HTTP 200, and matches persisted run `1a6b7b55b3f9eb1d09c45b58`: 221 published posts, 221 cached results, zero errors, and zero model cost. The 50-row human review, applicant video, and forms remain pending. The assignment is not ready for submission.
 
 First-load tagging list-price spend is $0.1104267: $0.52584143 per 1,000 distinct attempted versions, or $0.49966833 per 1,000 published posts. These figures include failed attempts and retries in the selected first-load runs, exclude v1 development, and are not reconciled cash charges. See [EVALUATION.md](EVALUATION.md) for reproducible accounting and audit commands.
 
