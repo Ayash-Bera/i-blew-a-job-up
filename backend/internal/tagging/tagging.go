@@ -133,12 +133,16 @@ func (c *Client) Tag(ctx context.Context, p models.RawPosting, runID, jobID, key
 		protected.CheckRedirect = func(*http.Request, []*http.Request) error { return http.ErrUseLastResponse }
 		client = &protected
 	}
+	repairReason := ""
 	for attempt := 0; attempt < 3; attempt++ {
 		if err := c.waitForTurn(ctx); err != nil {
 			return models.Tags{}, err
 		}
 		now := time.Now().UTC()
 		usage := models.Usage{ID: normalize.Hash(fmt.Sprintf("%s|%s|%d", runID, key, now.UnixNano())), RunID: runID, JobID: jobID, ContentKey: key, Model: c.Model, PromptVersion: PromptVersion, CreatedAt: now, InputUSDPerMillion: c.InputRate, OutputUSDPerMillion: c.OutputRate, CachedInputUSDPerMillion: c.CachedInputRate, Status: "unknown"}
+		if repairReason != "" {
+			usage.RepairPolicy, usage.RepairReason = RepairPolicyVersion, repairReason
+		}
 		usage.Status = "in_flight"
 		if err := sink(ctx, usage); err != nil {
 			return models.Tags{}, fmt.Errorf("record model attempt before request: %w", err)
@@ -193,9 +197,6 @@ func (c *Client) Tag(ctx context.Context, p models.RawPosting, runID, jobID, key
 				}
 			}
 		}
-		if retry {
-			c.postpone(delay)
-		}
 		if errors.Is(err, errInvalidUsage) || !validUsage(usage) {
 			usage.InputTokens = nil
 			usage.OutputTokens = nil
@@ -204,6 +205,10 @@ func (c *Client) Tag(ctx context.Context, p models.RawPosting, runID, jobID, key
 			usage.Status = "invalid_usage"
 			usage.FailureReason = ""
 			err = errInvalidUsage
+			retry = false
+		}
+		if retry {
+			c.postpone(delay)
 		}
 		usage.CostUSD = usageCost(usage)
 		persistCtx, cancel := context.WithTimeout(context.WithoutCancel(ctx), 5*time.Second)
@@ -214,6 +219,17 @@ func (c *Client) Tag(ctx context.Context, p models.RawPosting, runID, jobID, key
 		}
 		if err == nil {
 			return tags, nil
+		}
+		if usage.Status == "invalid_output" && attempt < 2 {
+			if instruction := repairInstruction(usage.FailureReason); instruction != "" {
+				body, err = c.requestBodyWithInstruction(string(content), instruction)
+				if err != nil {
+					return models.Tags{}, fmt.Errorf("encode validation repair: %w", err)
+				}
+				repairReason = usage.FailureReason
+				retry = true
+				c.postpone(delay)
+			}
 		}
 		if !retry || attempt == 2 {
 			return models.Tags{}, err

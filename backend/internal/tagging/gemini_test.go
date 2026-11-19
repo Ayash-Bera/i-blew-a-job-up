@@ -135,6 +135,7 @@ func TestGeminiUnspecifiedLocationFallback(t *testing.T) {
 		{name: "null cities", status: "region", evidence: "Unverified region", failure: "tag_json_invalid"},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
+			t.Parallel()
 			p := models.RawPosting{Title: "Hostess", Description: "Seat guests. No experience required.", Country: "IN", Locations: tc.locations}
 			tags := models.Tags{Role: "Business and Operations", Cities: tc.cities, LocationStatus: tc.status, LocationEvidence: tc.evidence, RoleEvidence: p.Title, WorkMode: "unspecified", EmploymentType: "full-time"}
 			if tc.roleEvidence != "" {
@@ -155,7 +156,11 @@ func TestGeminiUnspecifiedLocationFallback(t *testing.T) {
 			client := Client{Provider: "gemini", URL: server.URL, Model: "test", Key: "test", InputRate: &rate, OutputRate: &rate}
 			var row models.Usage
 			got, err := client.Tag(context.Background(), p, "run", "job", "key", func(_ context.Context, u models.Usage) error { row = u; return nil })
-			if calls.Load() != 1 || row.HTTPStatus != http.StatusOK || row.InputTokens == nil || *row.InputTokens != 100 || row.OutputTokens == nil || *row.OutputTokens != 50 || row.CostUSD == nil || math.Abs(*row.CostUSD-0.00015) > 1e-12 {
+			wantCalls := int32(1)
+			if tc.failure != "" {
+				wantCalls = 3
+			}
+			if calls.Load() != wantCalls || row.HTTPStatus != http.StatusOK || row.InputTokens == nil || *row.InputTokens != 100 || row.OutputTokens == nil || *row.OutputTokens != 50 || row.CostUSD == nil || math.Abs(*row.CostUSD-0.00015) > 1e-12 {
 				t.Fatalf("attempt or usage changed: %+v, calls %d", row, calls.Load())
 			}
 			if tc.failure != "" {
@@ -275,6 +280,7 @@ func TestGeminiFailureReasons(t *testing.T) {
 		{"city evidence", "validation_city_evidence_missing"},
 	} {
 		t.Run(tc.kind, func(t *testing.T) {
+			t.Parallel()
 			tags := valid()
 			switch tc.kind {
 			case "role evidence":
@@ -309,8 +315,12 @@ func TestGeminiFailureReasons(t *testing.T) {
 				writes = append(writes, u)
 				return nil
 			})
-			if err == nil || calls != 1 || len(writes) != 2 {
-				t.Fatal("invalid output accepted, retried, or not persisted", err, calls, len(writes))
+			wantCalls := 3
+			if tc.kind == "response" {
+				wantCalls = 1
+			}
+			if err == nil || calls != wantCalls || len(writes) != 2*wantCalls {
+				t.Fatal("invalid output accepted or attempt policy violated", err, calls, len(writes))
 			}
 			row := writes[1]
 			if writes[0].FailureReason != "" || row.Status != "invalid_output" || row.HTTPStatus != http.StatusOK || row.FailureReason != tc.reason {

@@ -13,15 +13,19 @@ import (
 var errInvalidUsage = errors.New("invalid model token usage")
 
 func (c *Client) requestBody(content string) ([]byte, error) {
+	return c.requestBodyWithInstruction(content, Prompt)
+}
+
+func (c *Client) requestBodyWithInstruction(content, instruction string) ([]byte, error) {
 	switch c.Provider {
 	case "gemini":
 		return json.Marshal(map[string]any{
-			"systemInstruction": map[string]any{"parts": []any{map[string]string{"text": Prompt}}},
+			"systemInstruction": map[string]any{"parts": []any{map[string]string{"text": instruction}}},
 			"contents":          []any{map[string]any{"role": "user", "parts": []any{map[string]string{"text": content}}}},
 			"generationConfig":  map[string]any{"responseMimeType": "application/json", "responseJsonSchema": Schema(), "maxOutputTokens": 2048, "thinkingConfig": map[string]string{"thinkingLevel": "MINIMAL"}},
 		})
 	case "", "compatible":
-		return json.Marshal(map[string]any{"model": c.Model, "temperature": 0, "max_tokens": 700, "messages": []map[string]string{{"role": "system", "content": Prompt}, {"role": "user", "content": content}}, "response_format": map[string]any{"type": "json_schema", "json_schema": map[string]any{"name": "job_tags", "strict": true, "schema": Schema()}}})
+		return json.Marshal(map[string]any{"model": c.Model, "temperature": 0, "max_tokens": 700, "messages": []map[string]string{{"role": "system", "content": instruction}, {"role": "user", "content": content}}, "response_format": map[string]any{"type": "json_schema", "json_schema": map[string]any{"name": "job_tags", "strict": true, "schema": Schema()}}})
 	default:
 		return nil, errors.New("unsupported model provider")
 	}

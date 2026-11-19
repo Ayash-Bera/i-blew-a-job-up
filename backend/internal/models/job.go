@@ -132,6 +132,8 @@ type Usage struct {
 	ContentKey               string    `json:"content_key"`
 	Model                    string    `json:"model"`
 	PromptVersion            string    `json:"prompt_version"`
+	RepairPolicy             string    `json:"repair_policy,omitempty"`
+	RepairReason             string    `json:"repair_reason,omitempty"`
 	CreatedAt                time.Time `json:"created_at"`
 	InputTokens              *int      `json:"input_tokens"`
 	OutputTokens             *int      `json:"output_tokens"`
