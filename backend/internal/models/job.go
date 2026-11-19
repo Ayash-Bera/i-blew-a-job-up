@@ -57,16 +57,18 @@ type SourceView struct {
 }
 
 type Run struct {
-	ID         string     `json:"id"`
-	StartedAt  time.Time  `json:"started_at"`
-	FinishedAt *time.Time `json:"finished_at"`
-	Status     string     `json:"status"`
-	Fetched    int        `json:"fetched"`
-	Eligible   int        `json:"eligible"`
-	Published  int        `json:"published"`
-	Cached     int        `json:"cached"`
-	Errors     int        `json:"errors"`
-	CostUSD    *float64   `json:"cost_usd"`
+	ID              string     `json:"id"`
+	StartedAt       time.Time  `json:"started_at"`
+	FinishedAt      *time.Time `json:"finished_at"`
+	Status          string     `json:"status"`
+	Fetched         int        `json:"fetched"`
+	Eligible        int        `json:"eligible"`
+	Published       int        `json:"published"`
+	Cached          int        `json:"cached"`
+	Errors          int        `json:"errors"`
+	CostUSD         *float64   `json:"cost_usd"`
+	CachePruned     *int       `json:"cache_pruned,omitempty"`
+	CachePruneError string     `json:"cache_prune_error,omitempty"`
 }
 
 type Evaluation struct {

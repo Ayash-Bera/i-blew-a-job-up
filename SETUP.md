@@ -26,6 +26,7 @@ Copy `backend/.env.example` to `backend/.env` and populate values locally. Never
 | `REFRESH_TIMEOUT_SECONDS` | Ingestion timeout, defaults to 240; keep below hosting request limits |
 | `MAX_TAG_POSTS` | Maximum new post versions sent to the model in a run, defaults to 500 |
 | `TAG_CONCURRENCY` | Concurrent model calls, defaults to 4; reduce for provider rate limits |
+| `TAG_CACHE_RETENTION_DAYS` | Delete unused, unprotected tag results after this many days, defaults to 90; integer from 1 to 3650 |
 
 Migrations run automatically on startup. They use a separate session connection because migration advisory locks require session affinity. Application queries use pgx simple protocol, compatible with transaction pooling. The schema is private, with restricted access and row policies. Use a dedicated database for this application.
 

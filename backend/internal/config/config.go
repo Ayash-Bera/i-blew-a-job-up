@@ -18,6 +18,7 @@ type Config struct {
 	CronSecret, AllowedOrigin, ModelURL, Model, ModelKey, ModelProvider   string
 	InputRate, OutputRate, CachedInputRate                                *float64
 	RefreshTimeout, ModelMinInterval                                      time.Duration
+	TagCacheRetention                                                     time.Duration
 	MaxTagPosts, TagConcurrency                                           int
 }
 
@@ -64,6 +65,11 @@ func Load() (Config, error) {
 		return c, err
 	}
 	c.RefreshTimeout = time.Duration(seconds) * time.Second
+	days, err := number(os.Getenv("TAG_CACHE_RETENTION_DAYS"), 90, 1, 3650)
+	if err != nil {
+		return c, fmt.Errorf("tag cache retention: %w", err)
+	}
+	c.TagCacheRetention = time.Duration(days) * 24 * time.Hour
 	if c.MaxTagPosts, err = number(os.Getenv("MAX_TAG_POSTS"), 500, 0, 5000); err != nil {
 		return c, err
 	}

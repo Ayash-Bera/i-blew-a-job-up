@@ -54,6 +54,7 @@ func run() error {
 		return err
 	}
 	engine := &ingest.Engine{Store: store, Fetch: sources.Fetch, RegistryPath: c.SourceRegistry, Definitions: definitions, Tagger: &tagging.Client{URL: c.ModelURL, Model: c.Model, Key: c.ModelKey, Provider: c.ModelProvider, InputRate: c.InputRate, OutputRate: c.OutputRate, CachedInputRate: c.CachedInputRate, MinInterval: c.ModelMinInterval}, MaxTags: c.MaxTagPosts, Concurrency: c.TagConcurrency, Timeout: c.RefreshTimeout}
+	engine.TagCacheRetention = c.TagCacheRetention
 	handler := (&api.Server{Store: store, Engine: engine, Origin: c.AllowedOrigin, CronSecret: c.CronSecret}).Router()
 	server := &http.Server{Addr: ":" + c.Port, Handler: handler, ReadHeaderTimeout: 10 * time.Second, ReadTimeout: 15 * time.Second, WriteTimeout: c.RefreshTimeout + 15*time.Second, IdleTimeout: 60 * time.Second, MaxHeaderBytes: 16 << 10}
 	result := make(chan error, 1)

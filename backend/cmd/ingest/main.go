@@ -95,6 +95,7 @@ func run() error {
 	}
 	defer store.Pool.Close()
 	engine := &ingest.Engine{Store: store, Fetch: fetch, RegistryPath: c.SourceRegistry, Definitions: definitions, Tagger: &tagging.Client{URL: c.ModelURL, Model: c.Model, Key: c.ModelKey, Provider: c.ModelProvider, InputRate: c.InputRate, OutputRate: c.OutputRate, CachedInputRate: c.CachedInputRate, MinInterval: c.ModelMinInterval}, MaxTags: c.MaxTagPosts, Concurrency: c.TagConcurrency, Timeout: c.RefreshTimeout}
+	engine.TagCacheRetention = c.TagCacheRetention
 	run, err := engine.Run(ctx)
 	b, encodeErr := json.MarshalIndent(run, "", "  ")
 	if encodeErr != nil {

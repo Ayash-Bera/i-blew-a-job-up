@@ -108,6 +108,7 @@ func TestPostgresIntegration(t *testing.T) {
 	if err = p.Pool.QueryRow(ctx, "SELECT count(*) FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace CROSS JOIN LATERAL aclexplode(c.relacl) a WHERE n.nspname='firstrole' AND a.grantee=0").Scan(&publicPrivileges); err != nil || publicPrivileges != 0 {
 		t.Fatal("public access", publicPrivileges, err)
 	}
+	t.Run("tag cache retention", func(t *testing.T) { testPostgresTagCacheRetention(t, ctx, p) })
 	if err = p.Release(ctx, "owner"); err != nil {
 		t.Fatal(err)
 	}

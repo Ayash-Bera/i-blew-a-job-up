@@ -41,6 +41,12 @@ The Marriott connector rechecks a curated inventory of public listing URLs. Its 
 
 Production publishes successfully validated model tags. A read-only preview can display real records with pending tags, clearly identified as incomplete. Job descriptions are untrusted input; the model receives a fixed extraction prompt, a closed taxonomy, and a strict response schema. Failed outputs stay outside the production count.
 
+Tag-cache retention defaults to 90 days since last use, configured by `TAG_CACHE_RETENTION_DAYS`. Cache hits and duplicate inserts update an indexed last-use timestamp without changing accepted tags or their creation provenance. Existing rows receive a fresh retention window when the migration runs because previous cache hits were not timestamped.
+
+After a successful refresh commits, the same lease owner removes up to 1,000 entries strictly older than the retention cutoff. Current candidate keys and every frozen initial cost-cohort key are protected. Cleanup skips partial, pending and timed-out refreshes. It also skips refreshes without model configuration. The run API reports `cache_pruned` when cleanup completes; a cleanup failure reports `cache_prune_error` and a partial run while keeping the committed jobs.
+
+Pruning only deletes disposable tag results. Source observations, usage, refresh history and frozen review exports remain available. Historical predictions outside the protected cohort must be reproduced from their saved exports after their live cache entries expire. This policy does not cap total database history or immediately reclaim physical disk space.
+
 ## Checks
 
 From `backend/`, run `go test ./...`, `go build ./...`, and `go vet ./...`. Database integration tests use `TEST_DATABASE_URL` and an isolated test database. From `web/`, run `npm ci`, `npm run lint`, `npm run typecheck`, `npm test`, and `npm run build`.

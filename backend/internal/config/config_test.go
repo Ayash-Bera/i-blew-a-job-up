@@ -21,8 +21,34 @@ func TestRatesFinite(t *testing.T) {
 
 func resetConfig(t *testing.T) {
 	t.Helper()
-	for _, key := range []string{"PORT", "DATABASE_URL", "MIGRATION_DATABASE_URL", "SNAPSHOT_PATH", "SOURCE_REGISTRY", "CRON_SECRET", "ALLOWED_ORIGIN", "MODEL_PROVIDER", "MODEL_URL", "MODEL_NAME", "MODEL_API_KEY", "MODEL_INPUT_USD_PER_MILLION", "MODEL_OUTPUT_USD_PER_MILLION", "MODEL_CACHED_INPUT_USD_PER_MILLION", "MODEL_MIN_INTERVAL_MS", "REFRESH_TIMEOUT_SECONDS", "MAX_TAG_POSTS", "TAG_CONCURRENCY"} {
+	for _, key := range []string{"PORT", "DATABASE_URL", "MIGRATION_DATABASE_URL", "SNAPSHOT_PATH", "SOURCE_REGISTRY", "CRON_SECRET", "ALLOWED_ORIGIN", "MODEL_PROVIDER", "MODEL_URL", "MODEL_NAME", "MODEL_API_KEY", "MODEL_INPUT_USD_PER_MILLION", "MODEL_OUTPUT_USD_PER_MILLION", "MODEL_CACHED_INPUT_USD_PER_MILLION", "MODEL_MIN_INTERVAL_MS", "REFRESH_TIMEOUT_SECONDS", "MAX_TAG_POSTS", "TAG_CONCURRENCY", "TAG_CACHE_RETENTION_DAYS"} {
 		t.Setenv(key, "")
+	}
+}
+
+func TestTagCacheRetentionConfiguration(t *testing.T) {
+	for _, tc := range []struct {
+		value   string
+		days    int
+		invalid bool
+	}{
+		{"", 90, false}, {"30", 30, false}, {"3650", 3650, false},
+		{"0", 0, true}, {"-1", 0, true}, {"3651", 0, true}, {"1.5", 0, true},
+	} {
+		t.Run(tc.value, func(t *testing.T) {
+			resetConfig(t)
+			t.Setenv("TAG_CACHE_RETENTION_DAYS", tc.value)
+			c, err := Load()
+			if tc.invalid {
+				if err == nil {
+					t.Fatal("invalid retention accepted")
+				}
+				return
+			}
+			if err != nil || c.TagCacheRetention != time.Duration(tc.days)*24*time.Hour {
+				t.Fatal(c.TagCacheRetention, err)
+			}
+		})
 	}
 }
 

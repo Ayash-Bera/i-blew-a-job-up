@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"log/slog"
 	"sort"
 	"strings"
 	"sync"
@@ -26,6 +27,7 @@ type Engine struct {
 	Tagger               *tagging.Client
 	MaxTags, Concurrency int
 	Timeout              time.Duration
+	TagCacheRetention    time.Duration
 }
 type candidate struct {
 	Raw       models.RawPosting
@@ -245,6 +247,23 @@ schedule:
 	}
 	if timeoutErr != nil {
 		return run, timeoutErr
+	}
+	if run.Status == "success" && ctx.Err() == nil && e.Tagger.Ready() && e.TagCacheRetention > 0 {
+		protected := make([]string, 0, len(candidates))
+		for _, c := range candidates {
+			protected = append(protected, e.Tagger.CacheKey(c.Raw))
+		}
+		maintenance, stop := context.WithTimeout(ctx, 5*time.Second)
+		pruned, pruneErr := e.Store.PruneTags(maintenance, run.ID, protected, time.Now().UTC().Add(-e.TagCacheRetention))
+		stop()
+		if pruneErr != nil {
+			run.Status = "partial"
+			run.Errors++
+			run.CachePruneError = "cache_pruning_failed"
+			slog.Warn("tag cache pruning failed", "run_id", run.ID, "error", pruneErr)
+		} else {
+			run.CachePruned = &pruned
+		}
 	}
 	return run, nil
 }

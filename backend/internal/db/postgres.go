@@ -243,7 +243,7 @@ func (p *Postgres) PutRun(ctx context.Context, r models.Run) error {
 }
 func (p *Postgres) GetTag(ctx context.Context, key string) (*models.TagRecord, error) {
 	var b []byte
-	err := p.Pool.QueryRow(ctx, "SELECT payload FROM firstrole.tag_cache WHERE key=$1", key).Scan(&b)
+	err := p.Pool.QueryRow(ctx, "UPDATE firstrole.tag_cache SET last_used_at=GREATEST(last_used_at,statement_timestamp()) WHERE key=$1 RETURNING payload", key).Scan(&b)
 	if errors.Is(err, pgx.ErrNoRows) {
 		return nil, nil
 	}
@@ -259,8 +259,57 @@ func (p *Postgres) PutTag(ctx context.Context, t models.TagRecord) error {
 	if err != nil {
 		return err
 	}
-	_, err = p.Pool.Exec(ctx, "INSERT INTO firstrole.tag_cache(key,payload) VALUES($1,$2) ON CONFLICT(key) DO NOTHING", t.Key, string(b))
+	_, err = p.Pool.Exec(ctx, "INSERT INTO firstrole.tag_cache(key,payload) VALUES($1,$2) ON CONFLICT(key) DO UPDATE SET last_used_at=GREATEST(firstrole.tag_cache.last_used_at,statement_timestamp())", t.Key, string(b))
 	return err
+}
+
+func (p *Postgres) PruneTags(ctx context.Context, owner string, protected []string, cutoff time.Time) (int, error) {
+	if cutoff.IsZero() || cutoff.After(time.Now()) {
+		return 0, errors.New("cache cutoff must be a past timestamp")
+	}
+	tx, err := p.Pool.Begin(ctx)
+	if err != nil {
+		return 0, fmt.Errorf("begin cache pruning: %w", err)
+	}
+	defer tx.Rollback(context.WithoutCancel(ctx))
+	var actual string
+	err = tx.QueryRow(ctx, "SELECT owner FROM firstrole.leases WHERE name='refresh' AND expires_at>now() FOR UPDATE").Scan(&actual)
+	if errors.Is(err, pgx.ErrNoRows) || err == nil && actual != owner {
+		return 0, ErrLeaseLost
+	}
+	if err != nil {
+		return 0, fmt.Errorf("check cache pruning lease: %w", err)
+	}
+	var versions []byte
+	err = tx.QueryRow(ctx, "SELECT payload #> '{initial_cohort,versions}' FROM firstrole.settings WHERE key='summary'").Scan(&versions)
+	if err != nil && !errors.Is(err, pgx.ErrNoRows) {
+		return 0, fmt.Errorf("load protected cache cohort: %w", err)
+	}
+	cohort := models.InitialCohort{}
+	if len(versions) > 0 {
+		if err := json.Unmarshal(versions, &cohort.Versions); err != nil {
+			return 0, fmt.Errorf("decode protected cache cohort: %w", err)
+		}
+	}
+	keep := cacheProtection(protected, &cohort)
+	keys := make([]string, 0, len(keep))
+	for key := range keep {
+		keys = append(keys, key)
+	}
+	deleted, err := tx.Exec(ctx, `WITH expired AS (
+		SELECT key FROM firstrole.tag_cache
+		WHERE last_used_at < $1 AND key <> ALL($2::text[])
+		ORDER BY last_used_at, key LIMIT $3 FOR UPDATE SKIP LOCKED
+	)
+	DELETE FROM firstrole.tag_cache AS cache USING expired
+	WHERE cache.key=expired.key AND cache.last_used_at < $1`, cutoff, keys, TagCachePruneBatchSize)
+	if err != nil {
+		return 0, fmt.Errorf("delete unused tags: %w", err)
+	}
+	if err := tx.Commit(ctx); err != nil {
+		return 0, fmt.Errorf("commit cache pruning: %w", err)
+	}
+	return int(deleted.RowsAffected()), nil
 }
 func (p *Postgres) PutUsage(ctx context.Context, u models.Usage) error {
 	b, err := json.Marshal(u)

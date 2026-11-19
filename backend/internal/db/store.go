@@ -7,6 +7,7 @@ import (
 	"errors"
 	"fmt"
 	"os"
+	"sort"
 	"sync"
 	"time"
 
@@ -28,6 +29,7 @@ type Store interface {
 	PutRun(context.Context, models.Run) error
 	GetTag(context.Context, string) (*models.TagRecord, error)
 	PutTag(context.Context, models.TagRecord) error
+	PruneTags(context.Context, string, []string, time.Time) (int, error)
 	PutUsage(context.Context, models.Usage) error
 	Usage(context.Context) ([]models.Usage, error)
 }
@@ -40,6 +42,7 @@ type Memory struct {
 	mu       sync.Mutex
 	State    models.State
 	tags     map[string]models.TagRecord
+	tagUsed  map[string]time.Time
 	usage    []models.Usage
 	owner    string
 	until    time.Time
@@ -47,7 +50,7 @@ type Memory struct {
 }
 
 func NewMemory() *Memory {
-	return &Memory{State: Empty(), tags: map[string]models.TagRecord{}, usage: []models.Usage{}}
+	return &Memory{State: Empty(), tags: map[string]models.TagRecord{}, tagUsed: map[string]time.Time{}, usage: []models.Usage{}}
 }
 func OpenSnapshot(path string) (*Memory, error) {
 	b := bundledSnapshot
@@ -145,6 +148,9 @@ func (m *Memory) GetTag(_ context.Context, key string) (*models.TagRecord, error
 	if !ok {
 		return nil, nil
 	}
+	if !m.readOnly {
+		m.touchTag(key)
+	}
 	return &v, nil
 }
 func (m *Memory) PutTag(_ context.Context, t models.TagRecord) error {
@@ -153,8 +159,56 @@ func (m *Memory) PutTag(_ context.Context, t models.TagRecord) error {
 	if m.readOnly {
 		return ErrReadOnly
 	}
-	m.tags[t.Key] = t
+	if _, exists := m.tags[t.Key]; !exists {
+		m.tags[t.Key] = t
+	}
+	m.touchTag(t.Key)
 	return nil
+}
+
+func (m *Memory) touchTag(key string) {
+	now := time.Now().UTC()
+	if now.After(m.tagUsed[key]) {
+		m.tagUsed[key] = now
+	}
+}
+
+func (m *Memory) PruneTags(ctx context.Context, owner string, protected []string, cutoff time.Time) (int, error) {
+	m.mu.Lock()
+	defer m.mu.Unlock()
+	if m.readOnly {
+		return 0, ErrReadOnly
+	}
+	if err := ctx.Err(); err != nil {
+		return 0, err
+	}
+	if m.owner != owner || !m.until.After(time.Now()) {
+		return 0, ErrLeaseLost
+	}
+	if cutoff.IsZero() || cutoff.After(time.Now()) {
+		return 0, errors.New("cache cutoff must be a past timestamp")
+	}
+	keep := cacheProtection(protected, m.State.InitialCohort)
+	expired := []string{}
+	for key := range m.tags {
+		if !keep[key] && !m.tagUsed[key].IsZero() && m.tagUsed[key].Before(cutoff) {
+			expired = append(expired, key)
+		}
+	}
+	sort.Slice(expired, func(i, j int) bool {
+		if m.tagUsed[expired[i]].Equal(m.tagUsed[expired[j]]) {
+			return expired[i] < expired[j]
+		}
+		return m.tagUsed[expired[i]].Before(m.tagUsed[expired[j]])
+	})
+	if len(expired) > TagCachePruneBatchSize {
+		expired = expired[:TagCachePruneBatchSize]
+	}
+	for _, key := range expired {
+		delete(m.tags, key)
+		delete(m.tagUsed, key)
+	}
+	return len(expired), nil
 }
 func (m *Memory) PutUsage(_ context.Context, u models.Usage) error {
 	m.mu.Lock()
