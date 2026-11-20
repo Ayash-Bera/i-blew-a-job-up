@@ -249,6 +249,8 @@ h2>span{color:var(--orange)}
 .job-card:hover{border-color:var(--border-hover, #b8c0ac);box-shadow:0 3px 10px var(--card-shadow, #263d2610)}
 .job-main{display:flex;gap:16px;padding:23px 23px 18px;align-items:flex-start}
 .company-mark{height:43px;width:43px;flex-shrink:0;border-radius:7px;display:grid;place-items:center;font-size:16px;font-weight:650;letter-spacing:-.8px;margin-top:3px}
+.company-logo{color-scheme:light;background:#fff;border:1px solid var(--line);padding:5px;overflow:hidden}
+.company-logo img{display:block;width:100%;height:100%;object-fit:contain}
 .company-color-0{color:var(--company-green-text, #486c5c);background:var(--company-green-bg, #e4eee8)}
 .company-color-1{color:var(--company-violet-text, #71608b);background:var(--company-violet-bg, #ede8f2)}
 .company-color-2{color:var(--company-peach-text, #b66543);background:var(--company-peach-bg, #f9eae0)}

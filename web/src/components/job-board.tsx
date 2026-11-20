@@ -6,6 +6,7 @@ import { api } from "@/lib/api";
 import { emptyFilters, filterQuery, formatDate, isStale, label, safeURL } from "@/lib/query";
 import type { Filters, Job, JobsResponse, Stats } from "@/lib/types";
 import { Icon } from "./icons";
+import { CompanyLogo } from "./company-logo";
 
 export function JobBoard({ initialFilters }: { initialFilters: Filters }) {
   const [filters, setFilters] = useState<Filters>(initialFilters);
@@ -139,12 +140,10 @@ function FilterSelect({ id, name, value, values, all, onChange }: { id: string; 
 function JobCard({ job }: { job: Job }) {
   const applyURL = safeURL(job.apply_url);
   const sourceURL = safeURL(job.source_url);
-  const companyMark = job.company.trim().split(/\s+/).map((part) => part[0]).slice(0, 2).join("").toUpperCase();
   const pending = job.tagging_method !== "llm";
   const cities = pending ? "City tag pending, see source" : job.cities?.length ? job.cities.join(", ") : job.location_status === "remote" ? "Remote in India" : job.location_status === "region" ? "Regional location, see source" : "Location not specified";
-  const color = [...job.company].reduce((sum, char) => sum + char.charCodeAt(0), 0) % 5;
   return <article className="job-card">
-    <div className="job-main"><div className={`company-mark company-color-${color}`} aria-hidden="true">{companyMark || "?"}</div><div className="job-summary"><div className="job-company-line"><p className="company-name">{job.company}</p><span className={job.employment_type === "internship" ? "type-badge internship" : "type-badge"}>{label(job.employment_type)}</span></div><h3>{applyURL ? <a href={applyURL} target="_blank" rel="noopener noreferrer">{job.title}</a> : job.title}</h3><div className="job-meta"><span><Icon name="pin" size={14} />{cities}</span>{job.work_mode !== "unspecified" && <span><span className="meta-dot" />{label(job.work_mode)}</span>}<span className="role-tag">{pending ? "Role tag pending" : job.role || "Role not tagged"}</span></div></div><div className="job-action">{applyURL ? <a href={applyURL} target="_blank" rel="noopener noreferrer" className="apply-link" aria-label={`View ${job.title} at ${job.company}`}>View role <Icon name="external" size={15} /></a> : <span className="muted-text">Link unavailable</span>}</div></div>
+    <div className="job-main"><CompanyLogo company={job.company} /><div className="job-summary"><div className="job-company-line"><p className="company-name">{job.company}</p><span className={job.employment_type === "internship" ? "type-badge internship" : "type-badge"}>{label(job.employment_type)}</span></div><h3>{applyURL ? <a href={applyURL} target="_blank" rel="noopener noreferrer">{job.title}</a> : job.title}</h3><div className="job-meta"><span><Icon name="pin" size={14} />{cities}</span>{job.work_mode !== "unspecified" && <span><span className="meta-dot" />{label(job.work_mode)}</span>}<span className="role-tag">{pending ? "Role tag pending" : job.role || "Role not tagged"}</span></div></div><div className="job-action">{applyURL ? <a href={applyURL} target="_blank" rel="noopener noreferrer" className="apply-link" aria-label={`View ${job.title} at ${job.company}`}>View role <Icon name="external" size={15} /></a> : <span className="muted-text">Link unavailable</span>}</div></div>
     <div className="job-evidence-line"><span className="evidence-check"><Icon name="check" size={13} /></span><p>{job.eligibility_evidence || "Eligibility evidence is not recorded for this listing."}</p></div>
     <details className="job-details"><summary><span>Source & details <Icon name="chevron" size={13} /></span><span className="source-name">{job.source}</span></summary><div className="job-detail-content">{job.description_excerpt && <p className="description-excerpt">{job.description_excerpt}</p>}<dl><div><dt>Source checked</dt><dd>{formatDate(job.last_checked_at, true)}</dd></div><div><dt>First discovered</dt><dd>{formatDate(job.first_seen_at)}</dd></div><div><dt>Employer post date</dt><dd>{formatDate(job.published_at)}</dd></div><div><dt>Tagging</dt><dd>{job.tagging_method || "Not recorded"}</dd></div></dl>{sourceURL && <a href={sourceURL} target="_blank" rel="noopener noreferrer" className="source-link">Read the original post <Icon name="external" size={14} /></a>}</div></details>
   </article>;

@@ -2,10 +2,10 @@
 .env
 .env.*
 .unlazy
-private
-evidence
-data
-scripts
+/private
+/evidence
+/data
+/scripts
 **/node_modules
 **/.next
 **/.env

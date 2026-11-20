@@ -1,0 +1,209 @@
+[
+  {
+    "company": "66degrees",
+    "file": "66degrees.png",
+    "source_page": "https://www.66degrees.com/",
+    "source_url": "https://cdn.prod.website-files.com/68dd5adbcc75b2bc818c9064/68dd9d05fd5320033efe867b_webclip.png",
+    "processing": "Original asset bytes.",
+    "bytes": 5805,
+    "sha256": "e131f345aa30caa848027791de3565c90d4e5fa8f27d3a0b2f9c191df3157b3a"
+  },
+  {
+    "company": "Adobe",
+    "file": "adobe.png",
+    "source_page": "https://www.adobe.com/",
+    "source_url": "https://www.adobe.com/favicon.ico",
+    "processing": "Largest ICO frame extracted without resizing.",
+    "bytes": 1027,
+    "sha256": "e8f5869d6aa8ea2c6ed6c793fa129dad081333e564213fffb531b9a316690c64"
+  },
+  {
+    "company": "Certa",
+    "file": "certa.png",
+    "source_page": "https://www.certa.ai/",
+    "source_url": "https://www.certa.ai/icon.png?icon.0-mtc9.4bh7rh.png",
+    "processing": "Original asset bytes.",
+    "bytes": 37511,
+    "sha256": "28bd6bfa5b2e4bc75de4b27f10e20da57afeb9305389e83949d1f6bcc7862782"
+  },
+  {
+    "company": "CloudSEK",
+    "file": "cloudsek.png",
+    "source_page": "https://www.cloudsek.com/",
+    "source_url": "https://cdn.prod.website-files.com/634fc5026f66af518e897c77/634fc72bbb51ca5becedfe90_Logo%20Emblem%20only%20dark.png",
+    "processing": "Original asset bytes.",
+    "bytes": 9082,
+    "sha256": "d1626a58fe409a5d9e66d0c21b44e5f2e3cfb9730671fc6eaa537dd7116c6da2"
+  },
+  {
+    "company": "Composio",
+    "file": "composio.png",
+    "source_page": "https://composio.dev/",
+    "source_url": "https://composio.dev/apple-touch-icon.png",
+    "processing": "Original asset bytes.",
+    "bytes": 8828,
+    "sha256": "924f588685ca9887ccf937952878404da76837b6297884731bb9b175879e6548"
+  },
+  {
+    "company": "Drivetrain",
+    "file": "drivetrain-icon.png",
+    "source_page": "https://app.drivetrain.ai/",
+    "source_url": "https://production-cdn.drivetrain.ai/icon-192.png",
+    "processing": "Original asset bytes.",
+    "bytes": 7020,
+    "sha256": "ae9b505771d496d24222fed4088f00aaed11a504f2a41578a866c4d87f494daf"
+  },
+  {
+    "company": "Dun & Bradstreet",
+    "file": "dun-bradstreet.png",
+    "source_page": "https://www.dnb.com/",
+    "source_url": "https://www.dnb.com/etc.clientlibs/dnb-marketing-website/clientlibs/clientlib-react/resources/logo192.png",
+    "processing": "Original asset bytes.",
+    "bytes": 3909,
+    "sha256": "84711bfed5e5640e82a1f1f38f51eb2b7f92be38339ea611c990ed63b0f18dc0"
+  },
+  {
+    "company": "Emergent Labs",
+    "file": "emergent-labs.png",
+    "source_page": "https://emergent.sh/about-us",
+    "source_url": "https://cdn.prod.website-files.com/6a0edf12ef1a8562ed56d806/6a16a2349f51334d1700e015_emergent.png",
+    "processing": "Original asset bytes.",
+    "bytes": 17008,
+    "sha256": "b3894547352f1855a04382c90be897bc76b0b3cf880207d7622f3d7d55ccc282"
+  },
+  {
+    "company": "Forma",
+    "file": "forma.png",
+    "source_page": "https://www.forma.ai/",
+    "source_url": "https://cdn.prod.website-files.com/6512f4b8430d8d5f0ef506de/6540dd39d8a835fd109bf73c_Favicon_webclip.png",
+    "processing": "Original asset bytes.",
+    "bytes": 6174,
+    "sha256": "0014353d7473829201ec526574eda260e46079f0f62fa4e03948292b9403c969"
+  },
+  {
+    "company": "FourKites",
+    "file": "fourkites.png",
+    "source_page": "https://www.fourkites.ai/",
+    "source_url": "https://cdn.prod.website-files.com/6a1843324cfc7ec158c3aec9/6a833819b8ae846fbaa5dd05_Fourkites-icon.png",
+    "processing": "Original asset bytes.",
+    "bytes": 9693,
+    "sha256": "2f6fd6eb0263ff3412035117bb3153cf5f30c260186be565c6038c92fb2ac610"
+  },
+  {
+    "company": "Gainsight",
+    "file": "gainsight.svg",
+    "source_page": "https://jobs.ashbyhq.com/gainsight",
+    "source_url": "https://app.ashbyhq.com/api/images/org-theme-logo/da05ebb3-c911-4029-8ffe-897a7fdaff27/af2c8b32-2768-4145-bf62-5b98241e795e/f71cf4b4-9a65-4141-b542-615f6abfa41c.png",
+    "processing": "Saved as SVG to match the source response format.",
+    "bytes": 889,
+    "sha256": "c0478d101a9393118dc37117f752a5a29ad7378f1ac5ecccc3169d941002701c"
+  },
+  {
+    "company": "HackerRank",
+    "file": "hackerrank.png",
+    "source_page": "https://www.hackerrank.com/",
+    "source_url": "https://www.hackerrank.com/_sherpa/assets/static/apple-touch-icon.png",
+    "processing": "Original asset bytes.",
+    "bytes": 42432,
+    "sha256": "f2b8426bb10fdbede9365b87cf47d49c12bc0d7a38a4a084d1f51dc9dc3f0cb8"
+  },
+  {
+    "company": "Hevo Data",
+    "file": "hevo-data.png",
+    "source_page": "https://hevodata.com/",
+    "source_url": "https://res.cloudinary.com/hevo/image/upload/v1767677715/website-rewamp/favicon/white/Favicon_white_144x144_dgkmoi.png",
+    "processing": "Original asset bytes.",
+    "bytes": 1683,
+    "sha256": "a1526ba6784cccfb4c2627e14639d38706a10c57aebc847633217375f7439d5d"
+  },
+  {
+    "company": "HP",
+    "file": "hp.png",
+    "source_page": "https://www.hp.com/",
+    "source_url": "https://www.hp.com/favicon.ico",
+    "processing": "Original asset bytes.",
+    "bytes": 696,
+    "sha256": "49680babe4f6f5f9f535f0b3aa0529f3fa953b68c6a08c05ac6b8cc15f42b5dd"
+  },
+  {
+    "company": "Instawork",
+    "file": "instawork.png",
+    "source_page": "https://www.instawork.com/",
+    "source_url": "https://cdn.prod.website-files.com/63fd26f2fd0da53e0276079c/647e2794ec611bef8c055ebd_IW-favicon-white-grey-256x256.png",
+    "processing": "Original asset bytes.",
+    "bytes": 13887,
+    "sha256": "37d59df8cd294b3a22c6bd950b2dc9c84c64fb003a3073077e930b5c9a53e4ab"
+  },
+  {
+    "company": "Marriott International",
+    "file": "marriott.svg",
+    "source_page": "https://www.marriott.com/",
+    "source_url": "https://cache.marriott.com/aka-fonts/mi-brand-logo-icons/mi-brand-logo-icons.svg",
+    "processing": "Exact MarriottInternational_black glyph (U+E91E) extracted into static SVG.",
+    "bytes": 848,
+    "sha256": "9b0368d995f9d79b1fe1dcfff1ed23efbbbf7322b4af0a14349248e764f2a89f"
+  },
+  {
+    "company": "Medtronic",
+    "file": "medtronic.png",
+    "source_page": "https://www.medtronic.com/",
+    "source_url": "https://www.medtronic.com/favicon.ico",
+    "processing": "Largest ICO frame extracted without resizing.",
+    "bytes": 1605,
+    "sha256": "d0699485bb6209bbda5d810868f39e2a9c02658cee00b844a62f83bd3244cfd3"
+  },
+  {
+    "company": "Motorola Solutions",
+    "file": "motorola-solutions.png",
+    "source_page": "https://www.motorolasolutions.com/",
+    "source_url": "https://www.motorolasolutions.com/etc/designs/msi/favicon.ico",
+    "processing": "Largest ICO frame extracted without resizing.",
+    "bytes": 1298,
+    "sha256": "a9290c0bad9fbf87ccf60f0f34cce95c8702fad1961495db4d883ec8755f3f5a"
+  },
+  {
+    "company": "Paytm",
+    "file": "paytm.svg",
+    "source_page": "https://paytm.com/",
+    "source_url": "https://pwebassets.paytm.com/commonwebassets/paytmweb/footer/images/paytmLogo.svg",
+    "processing": "Original asset bytes.",
+    "bytes": 9992,
+    "sha256": "e4434ad36e10e4e4ffad744d1fea05ed7812dd4846e542d88fbd856bd06d1a84"
+  },
+  {
+    "company": "QAD",
+    "file": "qad.png",
+    "source_page": "https://www.qad.com/",
+    "source_url": "https://cdn.prod.website-files.com/6a2f8136c43acbb69981ffa6/6ad25d4bd2a1e3d204a2839a_fav%20512.png",
+    "processing": "Original asset bytes.",
+    "bytes": 6730,
+    "sha256": "cd8182ec21180ad561719e2174870182db76bd29c11f21de3832be85aacb3316"
+  },
+  {
+    "company": "Rubrik",
+    "file": "rubrik.png",
+    "source_page": "https://github.com/rubrikinc",
+    "source_url": "https://avatars.githubusercontent.com/u/13104740?v=4&s=128",
+    "processing": "Original asset bytes.",
+    "bytes": 5306,
+    "sha256": "357ec5941363bdba3f3e6fcff04e2fe7e3bceb14f601429d09592c7d995fe1c6"
+  },
+  {
+    "company": "Sarvam",
+    "file": "sarvam.svg",
+    "source_page": "https://www.sarvam.ai/",
+    "source_url": "https://www.sarvam.ai/favicon.svg",
+    "processing": "Original asset bytes.",
+    "bytes": 23487,
+    "sha256": "1bd7189f1daf7bebc51a027e05fe54143a3fc850219afb1faa30e4172ec44e82"
+  },
+  {
+    "company": "Stripe",
+    "file": "stripe.png",
+    "source_page": "https://stripe.com/in",
+    "source_url": "https://images.stripeassets.com/fzn2n1nzq965/4vVgZi0ZMoEzOhkcv7EVwK/8cce6fdcf2733b2ec8e99548908847ed/favicon.png?w=96&h=96",
+    "processing": "Original asset bytes.",
+    "bytes": 1487,
+    "sha256": "af3bacdcd1badb3b4a7bb90428042e77f4169e075bceee8b3e8a8f3db4e181dd"
+  }
+]
